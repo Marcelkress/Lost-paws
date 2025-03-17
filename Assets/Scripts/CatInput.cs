@@ -4,44 +4,66 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Movement))]
 public class CatInput : MonoBehaviour
 {
-    public Movement movement;
+    [Header("Input settings")] 
     
-    public Vector2 moveVector;
+    public float jumpHeight = 4f;
+    public float timeToJumpMax = 0.4f;
+    public float moveSpeed;
+    public float sprintSpeed;
+    public float accelerationTimeAirborne = .2f;
+    public float accelerationTimeGrounded = 0.1f;
+    
+    private float gravity;
+    private float jumpVelocity;
+    [HideInInspector] public Vector3 velocity;
+    private Movement movement;
+    
+    [HideInInspector]
+    public Vector2 inputVector;
     public bool jump;
     public bool sprint;
+
+    private float velocityXSmoothing;
 
     void Start()
     {
         movement = GetComponent<Movement>();
+ 
+        gravity = -(2 * jumpHeight / Mathf.Pow(timeToJumpMax, 2));
+        jumpVelocity = Mathf.Abs(gravity * timeToJumpMax);
+    }
+
+    void Update()
+    {
+        if (movement.collisions.above || movement.collisions.below)
+        {
+            velocity.y = 0;
+        }
+        if (jump && movement.collisions.below)
+        {
+            velocity.y = jumpVelocity;
+        }
+        
+        // Movement stuff
+        float targetVelocityX = inputVector.x * (sprint ? sprintSpeed : moveSpeed);
+        
+        velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing,
+            (movement.collisions.below ? accelerationTimeGrounded : accelerationTimeAirborne));
+        velocity.y += gravity * Time.deltaTime;
+        
+        movement.Move(velocity * Time.deltaTime);
     }
     
     public void OnMove(InputValue value)
     {
-        MoveInput(value.Get<Vector2>());
+        inputVector = value.Get<Vector2>();
     }
     public void OnJump(InputValue value)
     {
-        JumpInput(value.isPressed);
+        jump = value.isPressed;
     }
     public void OnSprint(InputValue value)
     {
-        SprintInput(value.isPressed);
-    }
-
-    public void SprintInput(bool newSprintState)
-    {
-        sprint = newSprintState;
-        Debug.Log(("Sprint" + newSprintState));
-    }
-    public void MoveInput(Vector2 newMoveDirection)
-    {
-        moveVector = newMoveDirection;
-        Debug.Log(("move" + newMoveDirection));
-    } 
-    
-    public void JumpInput(bool newJumpState)
-    {
-        jump = newJumpState;
-        Debug.Log(("jump" + newJumpState));
+        sprint = value.isPressed;
     }
 }
