@@ -5,6 +5,8 @@ public class Animations : MonoBehaviour
     private Animator anim;
     private SpriteRenderer sprite;
     private Movement movement;
+
+    public float triggerJumpVelocityThreshold = 0.9f;
     
     void Start()
     {
@@ -14,7 +16,7 @@ public class Animations : MonoBehaviour
         movement = GetComponent<Movement>();
     }
     
-    void Update()
+    void LateUpdate()
     {
         // Moving and sprinting
         anim.SetBool("Moving", input.inputVector.x != 0 ? true : false);
@@ -33,12 +35,18 @@ public class Animations : MonoBehaviour
             }
         }
         
-        if (!movement.collisions.below)
+        // Jumping 
+        if (Mathf.Abs(input.velocity.y) > triggerJumpVelocityThreshold && !movement.collisions.below)
         {
-            if (Mathf.Sign(input.velocity.y) == 1)
-            {
-                // Set jumping float
-            }
+            anim.SetBool("InAir", true);
+            
+            float velocityY = Mathf.Sign(input.velocity.y);
+            
+            anim.SetFloat("JumpFloat", velocityY);
+        }
+        else
+        {
+            anim.SetBool("InAir", false);
         }
     }
 }

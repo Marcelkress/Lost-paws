@@ -15,7 +15,7 @@ public class CatInput : MonoBehaviour
     
     private float gravity;
     private float jumpVelocity;
-    [HideInInspector] public Vector3 velocity;
+    public Vector3 velocity;
     private Movement movement;
     
     [HideInInspector]
