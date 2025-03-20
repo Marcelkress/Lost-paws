@@ -17,6 +17,7 @@ public class CatInput : MonoBehaviour
     private float jumpVelocity;
     public Vector3 velocity;
     private Movement movement;
+    private BoxCollider2D collider;
     
     [HideInInspector]
     public Vector2 inputVector;
@@ -25,12 +26,17 @@ public class CatInput : MonoBehaviour
 
     private float velocityXSmoothing;
 
+    public InputAction jumpAction;
+    
     void Start()
     {
         movement = GetComponent<Movement>();
  
         gravity = -(2 * jumpHeight / Mathf.Pow(timeToJumpMax, 2));
         jumpVelocity = Mathf.Abs(gravity * timeToJumpMax);
+
+        jumpAction = GetComponent<PlayerInput>().actions.FindAction("Jump");
+        jumpAction.performed += Jump;
     }
 
     void Update()
@@ -39,9 +45,11 @@ public class CatInput : MonoBehaviour
         {
             velocity.y = 0;
         }
+        
         if (jump && movement.collisions.below)
         {
             velocity.y = jumpVelocity;
+            jump = false;
         }
         
         // Movement stuff
@@ -53,15 +61,22 @@ public class CatInput : MonoBehaviour
         
         movement.Move(velocity * Time.deltaTime);
     }
+
+    private void Jump(InputAction.CallbackContext context)
+    {
+        jump = !jump;
+    }
     
     public void OnMove(InputValue value)
     {
         inputVector = value.Get<Vector2>();
     }
+    /*
     public void OnJump(InputValue value)
     {
         jump = value.isPressed;
     }
+    */
     public void OnSprint(InputValue value)
     {
         sprint = value.isPressed;
