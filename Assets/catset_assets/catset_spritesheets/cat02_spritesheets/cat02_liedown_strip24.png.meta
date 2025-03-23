@@ -1,0 +1,717 @@
+fileFormatVersion: 2
+guid: 51aaa4d2b67d04e488462305f906bffd
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8918431289272203828
+    second: cat02_liedown_strip24_0
+  - first:
+      213: 1135634564057489853
+    second: cat02_liedown_strip24_1
+  - first:
+      213: -4275221633399741850
+    second: cat02_liedown_strip24_2
+  - first:
+      213: -4840421736732714776
+    second: cat02_liedown_strip24_3
+  - first:
+      213: -5974064912375871128
+    second: cat02_liedown_strip24_4
+  - first:
+      213: -6899026438357755155
+    second: cat02_liedown_strip24_5
+  - first:
+      213: 8337791419691436496
+    second: cat02_liedown_strip24_6
+  - first:
+      213: -3755379173574602460
+    second: cat02_liedown_strip24_7
+  - first:
+      213: -3718908061359565957
+    second: cat02_liedown_strip24_8
+  - first:
+      213: -877655479043341392
+    second: cat02_liedown_strip24_9
+  - first:
+      213: 6334923630713438748
+    second: cat02_liedown_strip24_10
+  - first:
+      213: -7472265367396924869
+    second: cat02_liedown_strip24_11
+  - first:
+      213: 7909625109219300085
+    second: cat02_liedown_strip24_12
+  - first:
+      213: 8069555185575911447
+    second: cat02_liedown_strip24_13
+  - first:
+      213: 5273961535455541275
+    second: cat02_liedown_strip24_14
+  - first:
+      213: -4737371369569038104
+    second: cat02_liedown_strip24_15
+  - first:
+      213: 3322986444331673038
+    second: cat02_liedown_strip24_16
+  - first:
+      213: 6362043176748443838
+    second: cat02_liedown_strip24_17
+  - first:
+      213: 3734478089575180264
+    second: cat02_liedown_strip24_18
+  - first:
+      213: 9032643559855032089
+    second: cat02_liedown_strip24_19
+  - first:
+      213: 2468519926896205954
+    second: cat02_liedown_strip24_20
+  - first:
+      213: -3898139826255351925
+    second: cat02_liedown_strip24_21
+  - first:
+      213: -5913614876725968209
+    second: cat02_liedown_strip24_22
+  - first:
+      213: -1185876852897927400
+    second: cat02_liedown_strip24_23
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: cat02_liedown_strip24_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 6
+        width: 25
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43a7cc67102a4cb70800000000000000
+      internalID: 8918431289272203828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_liedown_strip24_1
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 6
+        width: 25
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db16d418e9592cf00800000000000000
+      internalID: 1135634564057489853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_liedown_strip24_2
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 6
+        width: 25
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 662a425539c5ba4c0800000000000000
+      internalID: -4275221633399741850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_liedown_strip24_3
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 6
+        width: 23
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e897fa731e53dcb0800000000000000
+      internalID: -4840421736732714776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_liedown_strip24_4
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 6
+        width: 23
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86906b83d9bd71da0800000000000000
+      internalID: -5974064912375871128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_liedown_strip24_5
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 6
+        width: 25
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dea58a5c10cb140a0800000000000000
+      internalID: -6899026438357755155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_liedown_strip24_6
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 6
+        width: 26
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d90206ee19c5b370800000000000000
+      internalID: 8337791419691436496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_liedown_strip24_7
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 6
+        width: 26
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4219f2ad98632ebc0800000000000000
+      internalID: -3755379173574602460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_liedown_strip24_8
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 6
+        width: 26
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b73935262d8c36cc0800000000000000
+      internalID: -3718908061359565957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_liedown_strip24_9
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 6
+        width: 26
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b34278edf0f1d3f0800000000000000
+      internalID: -877655479043341392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_liedown_strip24_10
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 6
+        width: 26
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1207ef6a7b2ae750800000000000000
+      internalID: 6334923630713438748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_liedown_strip24_11
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 6
+        width: 26
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b324ad4fc3e2d4890800000000000000
+      internalID: -7472265367396924869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_liedown_strip24_12
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 6
+        width: 26
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f2d68d3122a4cd60800000000000000
+      internalID: 7909625109219300085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_liedown_strip24_13
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 6
+        width: 26
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 710e9abdfa1dcff60800000000000000
+      internalID: 8069555185575911447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_liedown_strip24_14
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 6
+        width: 26
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b18b6e7e210e03940800000000000000
+      internalID: 5273961535455541275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_liedown_strip24_15
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 6
+        width: 26
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e05bbbc6d9714eb0800000000000000
+      internalID: -4737371369569038104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_liedown_strip24_16
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 6
+        width: 26
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec5e3dfa09e9d1e20800000000000000
+      internalID: 3322986444331673038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_liedown_strip24_17
+      rect:
+        serializedVersion: 2
+        x: 685
+        y: 6
+        width: 26
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb8e9cbcf848a4850800000000000000
+      internalID: 6362043176748443838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_liedown_strip24_18
+      rect:
+        serializedVersion: 2
+        x: 725
+        y: 6
+        width: 26
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e7ab9e490883d330800000000000000
+      internalID: 3734478089575180264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_liedown_strip24_19
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 6
+        width: 26
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91701efe5756a5d70800000000000000
+      internalID: 9032643559855032089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_liedown_strip24_20
+      rect:
+        serializedVersion: 2
+        x: 805
+        y: 6
+        width: 26
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2802f937bc1f14220800000000000000
+      internalID: 2468519926896205954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_liedown_strip24_21
+      rect:
+        serializedVersion: 2
+        x: 845
+        y: 6
+        width: 26
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8f2f333b7607e9c0800000000000000
+      internalID: -3898139826255351925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_liedown_strip24_22
+      rect:
+        serializedVersion: 2
+        x: 885
+        y: 6
+        width: 26
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa2884ee99e9eeda0800000000000000
+      internalID: -5913614876725968209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat02_liedown_strip24_23
+      rect:
+        serializedVersion: 2
+        x: 925
+        y: 6
+        width: 26
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81f29ab094bea8fe0800000000000000
+      internalID: -1185876852897927400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

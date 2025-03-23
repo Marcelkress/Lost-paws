@@ -5,8 +5,11 @@ public class Animations : MonoBehaviour
     private Animator anim;
     private SpriteRenderer sprite;
     private Movement movement;
+    private BoxCollider2D collider;
+    private float lastPosX;
 
     public float triggerJumpVelocityThreshold = 0.9f;
+    public float moveXThreshold = 0.5f;
     
     void Start()
     {
@@ -14,12 +17,18 @@ public class Animations : MonoBehaviour
         anim = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
         movement = GetComponent<Movement>();
+        collider = GetComponent<BoxCollider2D>();
     }
     
     void LateUpdate()
     {
-        // Moving and sprinting
-        anim.SetBool("Moving", input.inputVector.x != 0 ? true : false);
+        // Moving only if we moved since last frame to avoid the expanding collider going through walls
+        float newPosX = transform.position.x;
+        float deltaX = Mathf.Abs(newPosX) - Mathf.Abs(lastPosX);
+        anim.SetBool("Moving", Mathf.Abs(deltaX) > moveXThreshold ? true : false);
+        lastPosX = transform.position.x;
+        
+        // Sprinting
         anim.SetBool("Sprinting", input.sprint);
 
         // Flipping sprite on input direction
@@ -36,17 +45,18 @@ public class Animations : MonoBehaviour
         }
         
         // Jumping 
-        if (Mathf.Abs(input.velocity.y) > triggerJumpVelocityThreshold && !movement.collisions.below)
+        if (!movement.collisions.below && !input.wallSliding)
         {
             anim.SetBool("InAir", true);
-            
-            float velocityY = Mathf.Sign(input.velocity.y);
-            
-            anim.SetFloat("JumpFloat", velocityY);
         }
         else
         {
             anim.SetBool("InAir", false);
         }
+        
+        float velocityY = Mathf.Sign(input.velocity.y); 
+        anim.SetFloat("JumpFloat", velocityY);
+        
+        anim.SetBool("WallSliding", input.wallSliding);
     }
 }
