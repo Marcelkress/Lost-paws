@@ -1,64 +1,53 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class BirdBehavior : MonoBehaviour
 {
     public float catCheckRadius = 5;
-    public float flySpeed = 2;
-    public float flyUpForce;
-    public float flyAwayForce = 5;
     public LayerMask playerLayer;
     public LayerMask groundLayer;
     public float groundDistanceCheck;
-
-
-    private Vector2 velocity;
-    private int flyDir;
-
+    
+    public float flyHeight = 5;
+    public float flyDistance;
+    public float flySpeed = 5;
+    public float flyDuration = 2;
+    
     private BoxCollider2D collider;
-    private Rigidbody2D rb;
+    //private Rigidbody2D rb;
     private Animator anim;
+    private bool isFlying;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         collider = GetComponent<BoxCollider2D>();
-        rb = GetComponent<Rigidbody2D>();
+        //rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
+    
     void Update()
     {
-        float min = -Mathf.Infinity;
-        float max = Mathf.Infinity;
-
-        Collider2D hit = Physics2D.OverlapCircle(transform.position, catCheckRadius, playerLayer);
-
-        if (hit)
+        if (!isFlying)
         {
-            if (hit.transform.CompareTag("Player"))
+            Collider2D hit = Physics2D.OverlapCircle(transform.position, catCheckRadius, playerLayer);
+
+            if (hit)
             {
                 Transform player = hit.transform;
-
-                flyDir = (int)Mathf.Sign(transform.position.x - player.transform.position.x);
-
-                if (HitWallCheck(flyDir))
-                {
-                    flyDir *= -1;
-                }
-
-                if (Grounded())
-                {
-                    Vector2 force = new Vector2(flyAwayForce * flySpeed * flyDir, flyUpForce);
-                    rb.AddForce(force, ForceMode2D.Force);
-                }
+                float flyDir = Mathf.Sign(transform.position.x - player.position.x);
+                StartCoroutine(FlyAway(flyDir));
             }
         }
-        
-        anim.SetBool("Grounded", Grounded()); 
     }
 
+    private IEnumerator FlyAway(float flyDir)
+    {
+        yield return new WaitForSeconds(flyDuration);
+    }
     private bool HitWallCheck(int currentDir)
     {
         Vector2 origin = new Vector2(collider.bounds.max.x * currentDir, collider.bounds.center.y);

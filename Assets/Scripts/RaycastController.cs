@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
@@ -14,12 +15,16 @@ public class RaycastController : MonoBehaviour
     public BoxCollider2D collider2d;
     public RaycastOrigins raycastOrigins;
     
-    public virtual void Start()
+    public virtual void Awake()
     {
         collider2d = GetComponent<BoxCollider2D>();
+    }
+
+    public virtual void Start()
+    {
         CalculateRaySpacing();
     }
-    
+
     public void UpdateRaycastOrigins()
     {
         Bounds bounds = collider2d.bounds;

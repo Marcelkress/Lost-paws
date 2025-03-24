@@ -11,7 +11,7 @@ public class Movement : RaycastController
 
     public CollisionInfo collisions;
 
-    private Vector2 playerInput;
+    [HideInInspector] public Vector2 playerInput;
 
     public override void Start()
     {

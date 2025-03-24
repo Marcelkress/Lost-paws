@@ -274,8 +274,8 @@ TextureImporter:
       name: Project Mute Tileset V2_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 192
+        x: 101
+        y: 119
         width: 16
         height: 16
       alignment: 0
@@ -1529,7 +1529,13 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: 0, y: -5}
+        - {x: 0, y: -3}
+        - {x: -7, y: 4}
+        - {x: -8, y: 4}
+        - {x: -8, y: -5}
+        - {x: -8, y: -5}
       tessellationDetail: 0
       bones: []
       spriteID: 55ac054c4807e63c0800000000000000
@@ -1551,7 +1557,13 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: 8, y: 4}
+        - {x: 7, y: 4}
+        - {x: 0, y: -3}
+        - {x: 0, y: -5}
+        - {x: 8, y: -5}
+        - {x: 8, y: -5}
       tessellationDetail: 0
       bones: []
       spriteID: 9b503f2ec30d29ee0800000000000000
@@ -1573,7 +1585,12 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: 7, y: 5}
+        - {x: 7, y: 5}
+        - {x: -8, y: 5}
+        - {x: -8, y: -6}
+        - {x: 7, y: -6}
       tessellationDetail: 0
       bones: []
       spriteID: 48dc390d1da3a2d90800000000000000
@@ -1595,7 +1612,12 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: 8, y: 5}
+        - {x: 8, y: 5}
+        - {x: -7, y: 5}
+        - {x: -7, y: -6}
+        - {x: 8, y: -6}
       tessellationDetail: 0
       bones: []
       spriteID: ac379ddf6e54fd0c0800000000000000
