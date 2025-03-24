@@ -11,18 +11,27 @@ public class Movement : RaycastController
 
     public CollisionInfo collisions;
 
+    private Vector2 playerInput;
+
     public override void Start()
     {
         base.Start();
         collisions.faceDir = 1;
     }
+
+    public void Move(Vector3 velocity, bool standingOnPlatform)
+    {
+        Move(velocity, Vector2.zero, standingOnPlatform);
+    }
     
-    public void Move(Vector3 velocity, bool standingOnPlatform = false)
+    public void Move(Vector3 velocity, Vector2 input, bool standingOnPlatform = false)
     {
         UpdateRaycastOrigins();
         
         collisions.Reset();
         collisions.velocityOld = velocity;
+
+        playerInput = input;
 
         if (velocity.x != 0)
         {
@@ -121,8 +130,20 @@ public class Movement : RaycastController
             {
                 if (hit.collider.tag == "Through")
                 {
-                    if (directionY == 1)
+                    if (directionY == 1 || hit.distance == 0)
                     {
+                        continue;
+                    }
+
+                    if (collisions.fallingThroughPlatform)
+                    {
+                        continue;
+                    }
+                    
+                    if (playerInput.y == -1)
+                    {
+                        collisions.fallingThroughPlatform = true;
+                        Invoke("ResetFallingThroughPlatform", 0.5f);
                         continue;
                     }
                 }
@@ -204,6 +225,11 @@ public class Movement : RaycastController
             }
         }
     }
+
+    void ResetFallingThroughPlatform()
+    {
+        collisions.fallingThroughPlatform = false;
+    }
     
     public struct CollisionInfo
     {
@@ -213,6 +239,8 @@ public class Movement : RaycastController
 
         public bool climbingSlope;
         public bool descendingSlope;
+
+        public bool fallingThroughPlatform;
         
         public float slopeAngle, slopeAngleOld;
 
@@ -228,6 +256,7 @@ public class Movement : RaycastController
             descendingSlope = false;
             wallClimbLeft = false;
             wallClimbRight = false;
+            fallingThroughPlatform = false;
             slopeAngleOld = slopeAngle;
             slopeAngle = 0;
         }

@@ -98,11 +98,6 @@ public class CatInput : MonoBehaviour
             }
         }
         
-        if (movement.collisions.above || movement.collisions.below)
-        {
-            velocity.y = 0;
-        }
-        
         if (jumpTrigger)
         {
             if (wallSliding)
@@ -143,7 +138,12 @@ public class CatInput : MonoBehaviour
         // Movement stuff
         velocity.y += gravity * Time.deltaTime;
         
-        movement.Move(velocity * Time.deltaTime);
+        movement.Move(velocity * Time.deltaTime, inputVector);
+        
+        if (movement.collisions.above || movement.collisions.below)
+        {
+            velocity.y = 0;
+        }
     }
 
     private void JumpPerformed(InputAction.CallbackContext context)
