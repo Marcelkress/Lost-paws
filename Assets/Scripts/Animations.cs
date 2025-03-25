@@ -45,18 +45,15 @@ public class Animations : MonoBehaviour
         }
         
         // Jumping 
-        if (!movement.collisions.below && !input.wallSliding)
-        {
-            anim.SetBool("InAir", true);
-        }
-        else
-        {
-            anim.SetBool("InAir", false);
-        }
+        bool isInAir = !movement.collisions.below && !input.wallSliding;
+        anim.SetBool("InAir", isInAir);
         
         float velocityY = Mathf.Sign(input.velocity.y); 
         anim.SetFloat("JumpFloat", velocityY);
         
         anim.SetBool("WallSliding", input.wallSliding);
+        
+        
     }
+
 }

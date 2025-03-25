@@ -14,7 +14,7 @@ public class BirdBehavior : MonoBehaviour
     public float flySpeed = 5;
     public float flyDuration = 2;
     
-    private BoxCollider2D collider;
+    private BoxCollider2D collider2d;
     //private Rigidbody2D rb;
     private Animator anim;
     private bool isFlying;
@@ -22,7 +22,7 @@ public class BirdBehavior : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        collider = GetComponent<BoxCollider2D>();
+        collider2d = GetComponent<BoxCollider2D>();
         //rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
     }
@@ -50,7 +50,7 @@ public class BirdBehavior : MonoBehaviour
     }
     private bool HitWallCheck(int currentDir)
     {
-        Vector2 origin = new Vector2(collider.bounds.max.x * currentDir, collider.bounds.center.y);
+        Vector2 origin = new Vector2(collider2d.bounds.max.x * currentDir, collider2d.bounds.center.y);
         float rayLength = groundDistanceCheck;
         RaycastHit2D hit = Physics2D.Raycast(origin, Vector2.left * currentDir, rayLength, groundLayer);
 
@@ -59,7 +59,7 @@ public class BirdBehavior : MonoBehaviour
     
     private bool Grounded()
     {
-        Vector2 origin = new Vector2(collider.bounds.center.x, collider.bounds.min.y);
+        Vector2 origin = new Vector2(collider2d.bounds.center.x, collider2d.bounds.min.y);
         float rayLength = groundDistanceCheck;
         RaycastHit2D hit = Physics2D.Raycast(origin, Vector2.down, rayLength, groundLayer);
 
