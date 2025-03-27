@@ -1,33 +1,25 @@
 fileFormatVersion: 2
-guid: f17d8818696f5409698f7d32a1a2d2fc
+guid: fed24bd82cefc0c4a8ef64dab6231b53
+AssetOrigin:
+  serializedVersion: 1
+  productId: 120676
+  packageName: Simple Heart Health System
+  packageVersion: 1.0
+  assetPath: Assets/HealthHeartSystem/Graphics/mini-heart.png
+  uploadId: 286486
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3821505050577143685
-    second: shoot with FX_0
+      213: 21300000
+    second: mini-heart_0
   - first:
-      213: -1376526383558948596
-    second: shoot with FX_1
-  - first:
-      213: 5834485667984132436
-    second: shoot with FX_2
-  - first:
-      213: 6824458277619921871
-    second: shoot with FX_3
-  - first:
-      213: 5615742104926306671
-    second: shoot with FX_4
-  - first:
-      213: -2839492437144051888
-    second: shoot with FX_5
-  - first:
-      213: 281337848899839035
-    second: shoot with FX_6
+      213: 21300002
+    second: mini-heart_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
+    enableMipMap: 1
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -51,12 +43,12 @@ TextureImporter:
   generateCubemap: 6
   cubemapConvolution: 0
   seamlessCubemap: 0
-  textureFormat: 1
+  textureFormat: -1
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: 1
+    aniso: 16
     mipBias: 0
     wrapU: 1
     wrapV: 1
@@ -69,7 +61,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 1
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -84,25 +76,12 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
-  applyGammaDecoding: 0
+  applyGammaDecoding: 1
   swizzle: 50462976
-  cookieLightType: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -114,93 +93,62 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 32
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: shoot with FX_0
+      name: mini-heart_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 78
-        width: 49
-        height: 26
-      alignment: 9
-      pivot: {x: 0.45994428, y: 0.5}
+        x: 4
+        y: 5
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 5870307a896b80530800000000000000
-      internalID: 3821505050577143685
+      spriteID: 02305410000000000800000000000000
+      internalID: 21300000
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shoot with FX_1
+      name: mini-heart_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 52
-        width: 49
-        height: 26
-      alignment: 9
-      pivot: {x: 0.44993034, y: 0.5}
+        x: 20
+        y: 5
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: c09040c1c8895ece0800000000000000
-      internalID: -1376526383558948596
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shoot with FX_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 26
-        width: 49
-        height: 26
-      alignment: 9
-      pivot: {x: 0.46244773, y: 0.50943625}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4594d477dc148f050800000000000000
-      internalID: 5834485667984132436
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shoot with FX_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 49
-        height: 26
-      alignment: 9
-      pivot: {x: 0.46995816, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fc3720e55a855be50800000000000000
-      internalID: 6824458277619921871
+      spriteID: 22305410000000000800000000000000
+      internalID: 21300002
       vertices: []
       indices: 
       edges: []
@@ -209,7 +157,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 6c27dfcf187934baaae6392c32cd6b77
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -219,10 +167,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      shoot with FX_0: 3821505050577143685
-      shoot with FX_1: -1376526383558948596
-      shoot with FX_2: 5834485667984132436
-      shoot with FX_3: 6824458277619921871
+      mini-heart_0: 21300000
+      mini-heart_1: 21300002
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
