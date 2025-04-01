@@ -10,6 +10,7 @@ public class CatInput : MonoBehaviour
     public float maxJumpHeight = 4f;
     public float minJumpHeight = 1f;
     public float timeToJumpMax = 0.4f;
+    public float coyoteTime = 0.1f;
 
     [Header("Movement settings")] 
     public float moveSpeed;
@@ -29,6 +30,7 @@ public class CatInput : MonoBehaviour
     private float gravity;
     private float maxJumpVelocity;
     private float minJumpVelocity;
+    private float coyoteTimeCounter;
     
     [HideInInspector] public Vector3 velocity;
     private Movement movement;
@@ -98,6 +100,16 @@ public class CatInput : MonoBehaviour
             }
         }
         
+        // Update coyote time counter
+        if (movement.collisions.below)
+        {
+            coyoteTimeCounter = coyoteTime;
+        }
+        else
+        {
+            coyoteTimeCounter -= Time.deltaTime;
+        }
+        
         if (jumpTrigger)
         {
             if (wallSliding)
@@ -118,9 +130,12 @@ public class CatInput : MonoBehaviour
                     velocity.y = wallLeap.y;
                 }
             }
-            if (movement.collisions.below)
+            
+            // Normal jumping
+            if (movement.collisions.below || coyoteTimeCounter > 0)
             {
                 velocity.y = maxJumpVelocity;
+                coyoteTimeCounter = 0;
             }
             
             jumpTrigger = false;

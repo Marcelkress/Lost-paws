@@ -7,6 +7,7 @@ public class Animations : MonoBehaviour
     private Movement movement;
     private BoxCollider2D collider;
     private float lastPosX;
+    private PlayerHealth ph;
 
     public float triggerJumpVelocityThreshold = 0.9f;
     public float moveXThreshold = 0.5f;
@@ -18,6 +19,9 @@ public class Animations : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         movement = GetComponent<Movement>();
         collider = GetComponent<BoxCollider2D>();
+        ph = GetComponent<PlayerHealth>();
+        
+        ph.TakeDamageEvent.AddListener(TakeDamage);
     }
     
     void LateUpdate()
@@ -52,8 +56,11 @@ public class Animations : MonoBehaviour
         anim.SetFloat("JumpFloat", velocityY);
         
         anim.SetBool("WallSliding", input.wallSliding);
-        
-        
+    }
+
+    void TakeDamage()
+    {
+        anim.SetTrigger("TakeDamage");
     }
 
 }

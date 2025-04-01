@@ -1,19 +1,16 @@
 fileFormatVersion: 2
-guid: 8e1d18407f44b4b2bb8964299966a317
+guid: 68cf8f203d3dd468e89b6c03909640f9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8710961352782910349
-    second: cat03_hurt_strip4_0
+      213: 2291270967926626937
+    second: LaserShot_0
   - first:
-      213: -4189923820920917398
-    second: cat03_hurt_strip4_1
+      213: -3272134961859198940
+    second: LaserShot_1
   - first:
-      213: -3611590016009595196
-    second: cat03_hurt_strip4_2
-  - first:
-      213: -954008178614877129
-    second: cat03_hurt_strip4_3
+      213: 2298599853602208663
+    second: LaserShot_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -57,7 +54,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -109,13 +106,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cat03_hurt_strip4_0
+      name: LaserShot_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 40
-        height: 40
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +121,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d8318cc923d83e870800000000000000
-      internalID: 8710961352782910349
+      spriteID: 97a9e6f3eca3ccf10800000000000000
+      internalID: 2291270967926626937
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cat03_hurt_strip4_1
+      name: LaserShot_1
       rect:
         serializedVersion: 2
-        x: 40
+        x: 64
         y: 0
-        width: 40
-        height: 40
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,20 +143,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a62bf0aeb766ad5c0800000000000000
-      internalID: -4189923820920917398
+      spriteID: 4200f35b69a0792d0800000000000000
+      internalID: -3272134961859198940
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cat03_hurt_strip4_2
+      name: LaserShot_2
       rect:
         serializedVersion: 2
-        x: 80
+        x: 128
         y: 0
-        width: 40
-        height: 40
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,30 +165,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4c69665f30e01edc0800000000000000
-      internalID: -3611590016009595196
+      spriteID: 79b79ba636446ef10800000000000000
+      internalID: 2298599853602208663
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cat03_hurt_strip4_3
+      name: LaserShot_3
       rect:
         serializedVersion: 2
-        x: 120
+        x: 192
         y: 0
-        width: 40
-        height: 40
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 734c7d8bd9ea2c2f0800000000000000
-      internalID: -954008178614877129
+      spriteID: 213ade0e74d234aed9f259104ea001df
+      internalID: 1369694752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LaserShot_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb2b4afc9a5044cd9aa41cc956323e9b
+      internalID: -1678399609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LaserShot_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e267d0685c7c4016909e220905d3890
+      internalID: -1508180396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LaserShot_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f99063273d104d48aec69ddf1364bf1
+      internalID: -719291971
       vertices: []
       indices: 
       edges: []
@@ -200,7 +263,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: ad8d0db3221c94d13a215ac8056f0c07
+    spriteID: ac6a80f74427d486abcc02b30f560bd3
     internalID: 0
     vertices: []
     indices: 
@@ -210,10 +273,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      cat03_hurt_strip4_0: 8710961352782910349
-      cat03_hurt_strip4_1: -4189923820920917398
-      cat03_hurt_strip4_2: -3611590016009595196
-      cat03_hurt_strip4_3: -954008178614877129
+      LaserShot_0: 2291270967926626937
+      LaserShot_1: -3272134961859198940
+      LaserShot_2: 2298599853602208663
+      LaserShot_3: 1369694752
+      LaserShot_4: -1678399609
+      LaserShot_5: -1508180396
+      LaserShot_6: -719291971
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

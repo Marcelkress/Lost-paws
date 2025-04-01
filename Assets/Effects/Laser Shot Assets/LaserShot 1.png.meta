@@ -1,19 +1,16 @@
 fileFormatVersion: 2
-guid: 8e1d18407f44b4b2bb8964299966a317
+guid: d30cfe58620044589ac84d2a88de59bb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8710961352782910349
-    second: cat03_hurt_strip4_0
+      213: 2291270967926626937
+    second: LaserShot_0
   - first:
-      213: -4189923820920917398
-    second: cat03_hurt_strip4_1
+      213: -3272134961859198940
+    second: LaserShot_1
   - first:
-      213: -3611590016009595196
-    second: cat03_hurt_strip4_2
-  - first:
-      213: -954008178614877129
-    second: cat03_hurt_strip4_3
+      213: 2298599853602208663
+    second: LaserShot_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -57,7 +54,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -109,89 +106,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cat03_hurt_strip4_0
+      name: LaserShot 1_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 207
         y: 0
-        width: 40
-        height: 40
+        width: 49
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: d8318cc923d83e870800000000000000
-      internalID: 8710961352782910349
+      spriteID: 961415acba42b4489a01c4cfb83379f2
+      internalID: 103114888
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cat03_hurt_strip4_1
+      name: LaserShot 1_1
       rect:
         serializedVersion: 2
-        x: 40
+        x: 271
         y: 0
-        width: 40
-        height: 40
+        width: 49
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: a62bf0aeb766ad5c0800000000000000
-      internalID: -4189923820920917398
+      spriteID: efba76717ce45443186cbd37edc786e8
+      internalID: 2127554914
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cat03_hurt_strip4_2
+      name: LaserShot 1_2
       rect:
         serializedVersion: 2
-        x: 80
+        x: 335
         y: 0
-        width: 40
-        height: 40
+        width: 49
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 4c69665f30e01edc0800000000000000
-      internalID: -3611590016009595196
+      spriteID: 62b1d83b5d161459bb3cb08c903f2866
+      internalID: 444067069
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cat03_hurt_strip4_3
+      name: LaserShot 1_3
       rect:
         serializedVersion: 2
-        x: 120
+        x: 399
         y: 0
-        width: 40
-        height: 40
+        width: 49
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 734c7d8bd9ea2c2f0800000000000000
-      internalID: -954008178614877129
+      spriteID: 18e9085a48ecc408c93928642ee268f3
+      internalID: 1798089399
       vertices: []
       indices: 
       edges: []
@@ -200,7 +197,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: ad8d0db3221c94d13a215ac8056f0c07
+    spriteID: ac6a80f74427d486abcc02b30f560bd3
     internalID: 0
     vertices: []
     indices: 
@@ -210,10 +207,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      cat03_hurt_strip4_0: 8710961352782910349
-      cat03_hurt_strip4_1: -4189923820920917398
-      cat03_hurt_strip4_2: -3611590016009595196
-      cat03_hurt_strip4_3: -954008178614877129
+      LaserShot 1_0: 103114888
+      LaserShot 1_1: 2127554914
+      LaserShot 1_2: 444067069
+      LaserShot 1_3: 1798089399
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

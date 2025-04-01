@@ -1,17 +1,26 @@
-using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 
-public class BotBehavior : MonoBehaviour
+public class BotBehavior : BehaviorStates
 {
-    public float wakeUpRange;
-    public float offsetToCenter;
     public LayerMask playerLayer;
+    
+    [Header("Settings")]
     public float waitTime;
     public float speed;
-    [UnityEngine.Range(0,2)] public float easeAmount;
+    public Vector3[] localWaypoints;
+    [Range(0, 1)]public float easeAmount;
+    
+    
+    [Header("Laser attack")]
     public float viewDistance;
+    public GameObject laserBeam;
+    public float laserActiveTime = 0.5f;
+    public float laserDistance;
+    public int laserDamage;
+    public AudioClip laserBeamClip;
 
     private Animator anim;
     private bool awake;
@@ -20,10 +29,13 @@ public class BotBehavior : MonoBehaviour
     private float nextMoveTime;
     private SpriteRenderer sprite;
     private BoxCollider2D collider2D;
-    public Vector2 velocity;
     
-    public Vector3[] localWaypoints;
+    private AudioSource audioSource;
+    private Vector3 originalScale;
+    
     private Vector3[] globalWaypoints;
+    private bool facingLeft;
+    private Vector3 velocity;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -31,9 +43,10 @@ public class BotBehavior : MonoBehaviour
         anim = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
         collider2D = GetComponent<BoxCollider2D>();
+        audioSource = GetComponent<AudioSource>();
 
         awake = false;
-
+        originalScale = transform.localScale;
         
         globalWaypoints = new Vector3[localWaypoints.Length];
         for (int i = 0; i < localWaypoints.Length; i++)
@@ -43,41 +56,113 @@ public class BotBehavior : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+
+    public override void UpdateAnimations()
     {
-        if (!awake)
+        if (velocity.x < 0 && !facingLeft)
         {
-            CheckForProximity();
-            return;
+            facingLeft = true;
+            transform.localScale = new Vector3(-originalScale.x, originalScale.y, originalScale.z);
         }
-        
-        if (!PlayerInView())
+        else if (velocity.x > 0 && facingLeft)
         {
-            velocity = PatrolMovement();
-            transform.Translate(velocity);
+            facingLeft = false;
+            transform.localScale = new Vector3(originalScale.x, originalScale.y, originalScale.z);
         }
         
         anim.SetBool("InView", PlayerInView());
-        
-        if (velocity.x < 0)
+    }
+
+    public override void EvaluateStates()
+    {
+        if (!awake)
         {
-            sprite.flipX = true;
+            return;
         }
-        else if (velocity.x > 0)
+
+        if (!PlayerInView())
         {
-            sprite.flipX = false;
+            currentState = State.Patrol;
         }
+        else
+        {
+            currentState = State.Aggro;
+        }
+    }
+
+    public override void Patrol()
+    {
+        velocity = PatrolMovement();
+        transform.Translate(velocity);
+    }
+
+    public override void Aggro()
+    {
+        anim.SetBool("InView", PlayerInView());
+    }
+
+    public override void Passive()
+    {
+        if (CheckForProximity())
+        {
+            awake = true;
+            anim.SetBool("Awake", awake);
+        }
+    }
+    public bool CheckForProximity()
+    {
+        Collider2D hit = Physics2D.OverlapCircle(new(transform.position.x, transform.position.y), wakeUpRange, playerLayer);
         
-        Debug.Log(PlayerInView());
+        if (hit)
+        {
+            return true;
+        }
+
+        return false;
+    }
+    
+    float Ease(float x)
+    {
+        float a = easeAmount + 1;
+
+        return Mathf.Pow(x, a) / (Mathf.Pow(x, a) + Mathf.Pow(1 - x, a));
+    }
+
+    /// <summary>
+    /// Method is called from the animation timeline in Unity
+    /// </summary>
+    public void Shoot()
+    {
+        StartCoroutine(ShootLaser());
+        
+        RaycastHit2D hit = Physics2D.CircleCast(collider2D.bounds.center, 2f, Vector2.right * (facingLeft == true ? -1 : 1), laserDistance, playerLayer);
+
+        if (hit.collider != null)
+        {
+            hit.transform.GetComponent<IHealth>().TakeDamage(laserDamage);
+        }
     }
 
     private bool PlayerInView()
     {
-        int castDir = (int)Mathf.Sign(velocity.x);
-
-        RaycastHit2D hit = Physics2D.BoxCast(collider2D.bounds.center, collider2D.size, 0f, Vector2.right * castDir, viewDistance, playerLayer);
+        RaycastHit2D hit = Physics2D.BoxCast(collider2D.bounds.center, collider2D.bounds.size, 0f, Vector2.right * (facingLeft == true ? -1 : 1), viewDistance, playerLayer);
         
         return hit.collider != null;
+    }
+    
+    private IEnumerator ShootLaser()
+    {
+        laserBeam.SetActive(true);
+        
+
+        yield return new WaitForSeconds(laserActiveTime);
+        
+        laserBeam.SetActive(false);
+    }
+
+    public void StartShootSound()
+    {
+        audioSource.PlayOneShot(laserBeamClip);
     }
     
     Vector2 PatrolMovement()
@@ -92,6 +177,7 @@ public class BotBehavior : MonoBehaviour
         
         float distanceBetweenWaypoints =
             Vector3.Distance(globalWaypoints[fromWaypointIndex], globalWaypoints[toWaypointIndex]);
+        
         percentBetweenWaypoints += Time.deltaTime * speed/distanceBetweenWaypoints;
         percentBetweenWaypoints = Mathf.Clamp01(percentBetweenWaypoints);
 
@@ -116,30 +202,11 @@ public class BotBehavior : MonoBehaviour
         
         return newPos - transform.position;
     }
-
-    private void CheckForProximity()
-    {
-        Collider2D hit = Physics2D.OverlapCircle(new(transform.position.x - offsetToCenter, transform.position.y), wakeUpRange, playerLayer);
-
-        if (hit)
-        {
-            awake = true;
-            anim.SetBool("Awake", awake);
-        }
-    }
-    
-    float Ease(float x)
-    {
-        float a = easeAmount + 1;
-
-        return Mathf.Pow(x, a) / (Mathf.Pow(x, a) + Mathf.Pow(1 - x, a));
-    }
-
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         
-        Gizmos.DrawWireSphere(new(transform.position.x - offsetToCenter, transform.position.y), wakeUpRange);
+        Gizmos.DrawWireSphere(new(transform.position.x, transform.position.y), wakeUpRange);
         
         if (localWaypoints != null)
         {
@@ -159,7 +226,7 @@ public class BotBehavior : MonoBehaviour
         Gizmos.color = Color.blue;
         int castDir = (int)Mathf.Sign(velocity.x); // Assuming the cast direction is based on the object's facing direction
         Vector3 castStart = transform.position;
-        Vector3 castEnd = castStart + Vector3.right * castDir * viewDistance;
+        Vector3 castEnd = castStart + Vector3.right * castDir * laserDistance;
         Gizmos.DrawLine(castStart, castEnd);
     }
 }
