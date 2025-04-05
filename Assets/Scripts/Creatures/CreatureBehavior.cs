@@ -4,7 +4,6 @@ public class CreatureBehavior : MonoBehaviour
 {
     public float detectRange;
     public LayerMask playerLayer;
-    [Range(0,2)] public float easeAmount;
 
     protected Vector3 velocity;
     protected bool facingLeft;
@@ -22,7 +21,6 @@ public class CreatureBehavior : MonoBehaviour
 
     public virtual void Start()
     {
-        Debug.Log("Parent");
         currentState = State.Passive;
         originalScale = transform.localScale;
         facingLeft = false;
@@ -59,20 +57,15 @@ public class CreatureBehavior : MonoBehaviour
 
     private void SwitchSide()
     {
-        Debug.Log("Velocity: " + velocity.x);
-        Debug.Log("FacingLeft: " + facingLeft);
-
         if (velocity.x < 0 && !facingLeft)
         {
             facingLeft = true;
             transform.localScale = new Vector3(-originalScale.x, originalScale.y, originalScale.z);
-            Debug.Log("Switched to facingLeft");
         }
         else if (velocity.x > 0 && facingLeft)
         {
             facingLeft = false;
             transform.localScale = new Vector3(originalScale.x, originalScale.y, originalScale.z);
-            Debug.Log("Switched from facingLeft");
         }
     }
 
@@ -86,13 +79,6 @@ public class CreatureBehavior : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(new(transform.position.x, transform.position.y), detectRange);
-    }
-    
-    public float Ease(float x)
-    {
-        float a = easeAmount + 1;
-
-        return Mathf.Pow(x, a) / (Mathf.Pow(x, a) + Mathf.Pow(1 - x, a));
     }
 
 }

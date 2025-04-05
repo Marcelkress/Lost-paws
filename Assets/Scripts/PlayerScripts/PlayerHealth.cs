@@ -7,6 +7,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
     private int currentHealth;
 
     public UnityEvent TakeDamageEvent = new ();
+    public UnityEvent HealEvent = new();
     
     void Awake()
     {
@@ -28,6 +29,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
     public void Heal(int amount)
     {
         currentHealth += amount;
+        HealEvent.Invoke();
     }
 
     public int GetCurrentHealth()

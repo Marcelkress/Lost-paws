@@ -38,19 +38,40 @@ public class DogBehaviorNew : CreatureBehavior
         
     }
 
+    /// <summary>
+    /// Method called from animation event
+    /// </summary>
+    public void Bite()
+    {
+        hit.transform.GetComponent<IHealth>().TakeDamage(1);
+        Debug.Log("bite!");
+    }
+
     public override void Aggro()
     {
+        Vector3 targetPos = new (player.position.x, transform.position.y);
+        Vector3 dir = (targetPos - transform.position).normalized;
+        
         // If player is within bite range, stop running and bite
         if (CheckForProximity(biteRange, ref hit))
         {
             biting = true;
             timePassed = 0;
-            Debug.Log("Bite");
             
             // Stop running
             velocity = Vector3.zero;
 
             // Play bite animation
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, biteRange, playerLayer);
+            
+            if (hit.collider != null)
+            {
+                anim.SetBool("Biting", true);
+            }
+            else
+            {
+                anim.SetBool("Biting", false);
+            }
         }
         
         timePassed += Time.deltaTime;
@@ -63,8 +84,7 @@ public class DogBehaviorNew : CreatureBehavior
         if (CheckForProximity(detectRange, ref hit) && !biting)
         {
             timePassed = 0;
-            Vector3 targetPos = new (player.position.x, transform.position.y);
-            Vector3 dir = (targetPos - transform.position).normalized;
+            
             velocity = dir * speed * Time.deltaTime;
             
             //Debug.Log(velocity);

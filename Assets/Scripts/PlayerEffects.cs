@@ -12,6 +12,8 @@ public class PlayerEffects : MonoBehaviour
 
     [Header("Dust Sprint")] 
     public GameObject sprintDust;
+    public GameObject sprintDustGround;
+
 
     public float spawnOffset = -0.1f;
     private bool wasSprinting;
@@ -39,6 +41,7 @@ public class PlayerEffects : MonoBehaviour
         if (input.sprint && !wasSprinting)
         {
             GameObject dust = Instantiate(sprintDust, new(transform.position.x, transform.position.y - spawnOffset), sprintDust.transform.rotation);
+            GameObject dustGround = Instantiate(sprintDust, new(transform.position.x, transform.position.y - spawnOffset), sprintDust.transform.rotation);
             
             //dust.transform.SetPositionAndRotation(transform.position, quaternion.identity);
 
@@ -46,6 +49,7 @@ public class PlayerEffects : MonoBehaviour
             {
                 Vector3 scale = new(dust.transform.localScale.x, dust.transform.localScale.y * -1);
                 dust.transform.localScale = scale;
+                dustGround.transform.localScale = scale;
             }
         }
         wasSprinting = input.sprint;

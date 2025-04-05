@@ -3,10 +3,8 @@ using UnityEngine;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 
-public class BotBehavior : BehaviorStates
+public class BotBehavior : CreatureBehavior
 {
-    public LayerMask playerLayer;
-    
     [Header("Settings")]
     public float waitTime;
     public float speed;
@@ -27,21 +25,17 @@ public class BotBehavior : BehaviorStates
     private int fromWaypointIndex;
     private float percentBetweenWaypoints;
     private float nextMoveTime;
-    private SpriteRenderer sprite;
     private BoxCollider2D collider2D;
+    private Collider2D hit;
     
     private AudioSource audioSource;
-    private Vector3 originalScale;
     
     private Vector3[] globalWaypoints;
-    private bool facingLeft;
-    private Vector3 velocity;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         anim = GetComponent<Animator>();
-        sprite = GetComponent<SpriteRenderer>();
         collider2D = GetComponent<BoxCollider2D>();
         audioSource = GetComponent<AudioSource>();
 
@@ -56,25 +50,10 @@ public class BotBehavior : BehaviorStates
     }
 
     // Update is called once per frame
-
-    public override void UpdateAnimations()
+    void Update()
     {
-        if (velocity.x < 0 && !facingLeft)
-        {
-            facingLeft = true;
-            transform.localScale = new Vector3(-originalScale.x, originalScale.y, originalScale.z);
-        }
-        else if (velocity.x > 0 && facingLeft)
-        {
-            facingLeft = false;
-            transform.localScale = new Vector3(originalScale.x, originalScale.y, originalScale.z);
-        }
+        base.Update();
         
-        anim.SetBool("InView", PlayerInView());
-    }
-
-    public override void EvaluateStates()
-    {
         if (!awake)
         {
             return;
@@ -103,22 +82,11 @@ public class BotBehavior : BehaviorStates
 
     public override void Passive()
     {
-        if (CheckForProximity())
+        if (CheckForProximity(detectRange, ref hit))
         {
             awake = true;
             anim.SetBool("Awake", awake);
         }
-    }
-    public bool CheckForProximity()
-    {
-        Collider2D hit = Physics2D.OverlapCircle(new(transform.position.x, transform.position.y), wakeUpRange, playerLayer);
-        
-        if (hit)
-        {
-            return true;
-        }
-
-        return false;
     }
     
     float Ease(float x)
@@ -206,7 +174,7 @@ public class BotBehavior : BehaviorStates
     {
         Gizmos.color = Color.red;
         
-        Gizmos.DrawWireSphere(new(transform.position.x, transform.position.y), wakeUpRange);
+        Gizmos.DrawWireSphere(new(transform.position.x, transform.position.y), detectRange);
         
         if (localWaypoints != null)
         {

@@ -21,6 +21,8 @@ public class HealthBarController : MonoBehaviour
         heartFills = new Image[playerHealth.maxHealth];
 
         playerHealth.TakeDamageEvent.AddListener(UpdateHeartsHUD);
+        playerHealth.HealEvent.AddListener(UpdateHeartsHUD);
+        
         InstantiateHeartContainers();
         UpdateHeartsHUD();
     }
