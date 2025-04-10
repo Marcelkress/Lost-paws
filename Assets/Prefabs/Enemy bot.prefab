@@ -244,7 +244,8 @@ MonoBehaviour:
   speed: 1
   localWaypoints:
   - {x: 0, y: 0, z: 0}
-  - {x: 1.43, y: 0, z: 0}
+  - {x: 4.92, y: 0, z: 0}
+  - {x: -7.79, y: 0, z: 0}
   easeAmount: 0.24
   viewDistance: 5
   laserBeam: {fileID: 6520148759481122293}

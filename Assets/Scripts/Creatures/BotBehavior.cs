@@ -18,6 +18,7 @@ public class BotBehavior : CreatureBehavior
     public float laserActiveTime = 0.5f;
     public float laserDistance;
     public int laserDamage;
+    public float laserRadius = 1f;
     public AudioClip laserBeamClip;
 
     private Animator anim;
@@ -103,7 +104,7 @@ public class BotBehavior : CreatureBehavior
     {
         StartCoroutine(ShootLaser());
         
-        RaycastHit2D hit = Physics2D.CircleCast(collider2D.bounds.center, 2f, Vector2.right * (facingLeft == true ? -1 : 1), laserDistance, playerLayer);
+        RaycastHit2D hit = Physics2D.CircleCast(collider2D.bounds.center, laserRadius, Vector2.right * (facingLeft == true ? -1 : 1), laserDistance, playerLayer);
 
         if (hit.collider != null)
         {
@@ -122,7 +123,6 @@ public class BotBehavior : CreatureBehavior
     {
         laserBeam.SetActive(true);
         
-
         yield return new WaitForSeconds(laserActiveTime);
         
         laserBeam.SetActive(false);

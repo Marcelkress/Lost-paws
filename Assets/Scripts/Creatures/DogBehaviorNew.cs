@@ -3,6 +3,7 @@ using UnityEngine;
 public class DogBehaviorNew : CreatureBehavior
 {
     public float biteRange;
+    public float barkRange;
     public float speed;
     public LayerMask obstacleLayer;
     public float biteTime = 1f;
@@ -33,9 +34,6 @@ public class DogBehaviorNew : CreatureBehavior
         base.Update();
         
         anim.SetBool("Moving", (Mathf.Abs(velocity.x) != 0 ? true : false));
-        
-        //Debug.Log(velocity);
-        
     }
 
     /// <summary>
@@ -80,7 +78,7 @@ public class DogBehaviorNew : CreatureBehavior
             biting = false;
         }
         
-        // If player is still in range run towards them
+        // If player is still in range && we're not biting, run towards the player
         if (CheckForProximity(detectRange, ref hit) && !biting)
         {
             timePassed = 0;
@@ -90,9 +88,15 @@ public class DogBehaviorNew : CreatureBehavior
             //Debug.Log(velocity);
             
             // If a wall is detected, stop running and bark
-            RaycastHit2D wallHit = Physics2D.Raycast(transform.position, dir, biteRange, obstacleLayer);
-            
+            RaycastHit2D wallHit = Physics2D.Raycast(transform.position, dir, barkRange, obstacleLayer);
             if (wallHit.collider != null)
+            {
+                velocity = Vector3.zero;
+                anim.SetBool("Barking", true);
+            }
+            // If the x distance to the player is within biteRange but y is not, stop and bark.
+            else if (Vector2.Distance(transform.position, targetPos) < barkRange &&
+                Vector2.Distance(transform.position, player.position) > barkRange)
             {
                 velocity = Vector3.zero;
                 anim.SetBool("Barking", true);
@@ -101,8 +105,8 @@ public class DogBehaviorNew : CreatureBehavior
             {
                 anim.SetBool("Barking", false);
             }
-
-            // If the x distance to the player is within biteRange but y is not, stop and bark.
+            
+            
         }
         
         // If the player is not within detection range then go back to passive state
