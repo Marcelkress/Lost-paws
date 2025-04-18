@@ -13,6 +13,8 @@ public class PlatformContoller : RaycastController
     public bool cyclic;
     public float waitTime;
     [Range(0,2)] public float easeAmount;
+
+    private bool locked = false;
     
     private int fromWaypointIndex;
     private float percentBetweenWaypoints;
@@ -35,6 +37,11 @@ public class PlatformContoller : RaycastController
     // Update is called once per frame
     void Update()
     {
+        if (locked)
+        {
+            return;
+        }
+        
         UpdateRaycastOrigins();
         
         Vector3 velocity = CalculatePlatformMovement();
@@ -46,6 +53,11 @@ public class PlatformContoller : RaycastController
         transform.Translate(velocity);
         
         MovePassengers(false);
+    }
+
+    public void LockPlatform(bool locked)
+    {
+        this.locked = locked;
     }
 
     float Ease(float x)

@@ -41,7 +41,7 @@ public class DogBehaviorNew : CreatureBehavior
     /// </summary>
     public void Bite()
     {
-        hit.transform.GetComponent<IHealth>().TakeDamage(1);
+        hit.transform.GetComponent<IHealth>().TakeDamage(1, false);
         Debug.Log("bite!");
     }
 

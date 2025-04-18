@@ -7,7 +7,7 @@ public class TouchDamage : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other.GetComponent<IHealth>().TakeDamage(damage);
+            other.GetComponent<IHealth>().TakeDamage(damage, true);
         }
     }
 }

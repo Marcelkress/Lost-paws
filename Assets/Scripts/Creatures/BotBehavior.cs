@@ -21,6 +21,8 @@ public class BotBehavior : CreatureBehavior
     public float laserRadius = 1f;
     public AudioClip laserBeamClip;
 
+    public GameObject projectile;
+
     private Animator anim;
     private bool awake;
     private int fromWaypointIndex;
@@ -102,19 +104,31 @@ public class BotBehavior : CreatureBehavior
     /// </summary>
     public void Shoot()
     {
-        StartCoroutine(ShootLaser());
+        //StartCoroutine(ShootLaser());
         
-        RaycastHit2D hit = Physics2D.CircleCast(collider2D.bounds.center, laserRadius, Vector2.right * (facingLeft == true ? -1 : 1), laserDistance, playerLayer);
+        //RaycastHit2D hit = Physics2D.CircleCast(collider2D.bounds.center, laserRadius, Vector2.right * (facingLeft == true ? -1 : 1), laserDistance, playerLayer);
 
-        if (hit.collider != null)
-        {
-            hit.transform.GetComponent<IHealth>().TakeDamage(laserDamage);
-        }
+        //if (hit.collider != null)
+        //{
+          //  hit.transform.GetComponent<IHealth>().TakeDamage(laserDamage, false);
+        //}
+
+        //Instantiate(projectile).GetComponent<Projectile>().Initialize(pl);
+
     }
 
     private bool PlayerInView()
     {
         RaycastHit2D hit = Physics2D.BoxCast(collider2D.bounds.center, collider2D.bounds.size, 0f, Vector2.right * (facingLeft == true ? -1 : 1), viewDistance, playerLayer);
+
+        // If the player is crouching the bot cant see them
+        if (hit.collider != null)
+        {
+            if (hit.collider.GetComponent<CatInput>().crouch)
+            {
+                return false;
+            }
+        }
         
         return hit.collider != null;
     }

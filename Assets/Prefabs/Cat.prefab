@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7218831415970891234
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8394446646979882845}
+  m_Layer: 3
+  m_Name: InteractOrigin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8394446646979882845
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7218831415970891234}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.08, y: -0.038, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 4937974548206629876}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7631957002756684204
 GameObject:
   m_ObjectHideFlags: 0
@@ -18,6 +49,10 @@ GameObject:
   - component: {fileID: 1117998188434412274}
   - component: {fileID: 1520192664899956381}
   - component: {fileID: 4241071574165460721}
+  - component: {fileID: 509491112838887594}
+  - component: {fileID: 8890501098010852982}
+  - component: {fileID: 1816671866335697227}
+  - component: {fileID: 166233985341116764}
   m_Layer: 3
   m_Name: Cat
   m_TagString: Player
@@ -36,9 +71,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 22.62, y: -5.55, z: 0}
   m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3066508781760947739}
+  - {fileID: 8394446646979882845}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6870125756968768550
@@ -82,8 +118,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 808774221
+  m_SortingLayer: 1
   m_SortingOrder: 1
   m_Sprite: {fileID: -6251691954389866334, guid: 1679be5d6253040e584181729878a217, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -163,11 +199,13 @@ MonoBehaviour:
   maxJumpHeight: 1.8
   minJumpHeight: 0.5
   timeToJumpMax: 0.4
+  coyoteTime: 0.1
   moveSpeed: 1.5
-  sprintSpeed: 4
-  accelerationTimeAirborne: 0.1
+  sprintSpeed: 3
+  crouchSpeed: 0.5
+  accelerationTimeAirborne: 0.03
   accelerationTimeGrounded: 0.01
-  canWallJump: 1
+  canWallJump: 0
   wallSlideSpeedMax: 1
   wallStickTime: 0.25
   wallJumpClimb: {x: 4, y: 8}
@@ -179,6 +217,7 @@ MonoBehaviour:
   jumpTrigger: 0
   jumpRelease: 0
   sprint: 0
+  crouch: 0
 --- !u!114 &681426056483271349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,7 +274,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 768
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -281,7 +320,8 @@ MonoBehaviour:
   dustRaycastLength: 0.5
   dustLandEffect: {fileID: 7184444619679606876, guid: be03b7b5fc7ab402daad9a3975bdda70, type: 3}
   sprintDust: {fileID: 1230565689591744276, guid: 090da5c9f329e4b60ab11f51e08cbc4d, type: 3}
-  spawnOffset: 0.1
+  sprintDustGround: {fileID: 3049473704561788132, guid: 5a07d086d2ae14f2f8b5c1d9e4fd2e87, type: 3}
+  spawnOffset: 0.25
 --- !u!114 &4241071574165460721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -295,9 +335,171 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 9
+  currentRespawnPoint: {fileID: 0}
   TakeDamageEvent:
     m_PersistentCalls:
       m_Calls: []
+  HealEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!50 &509491112838887594
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7631957002756684204}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &8890501098010852982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7631957002756684204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 947eba4ba222543219052a81b5cce7fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  miawSounds:
+  - {fileID: 8300000, guid: b38a29b5a04974d8b8947affd4b4911b, type: 3}
+  - {fileID: 8300000, guid: 0013f6371a6b74c1f8ea7f60b96e5ccc, type: 3}
+  - {fileID: 8300000, guid: b7719e40a9dcb435f8fba00e3b196b04, type: 3}
+--- !u!82 &1816671866335697227
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7631957002756684204}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.545
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &166233985341116764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7631957002756684204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a806f663f1dd34edfaf1dc667abc2a8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactRadius: 0.25
+  interactOrigin: {fileID: 8394446646979882845}
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  forceMagnitude: 2
 --- !u!1 &8750342424932077412
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,7 +552,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 0.01
   m_LightVolumeEnabled: 1
-  m_ApplyToSortingLayers: 0000000081399d74dff12e15
+  m_ApplyToSortingLayers: 0000000081399d74dff12e1573a40310737cac264dea3430
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -359,7 +561,7 @@ MonoBehaviour:
   m_NormalMapDistance: 3
   m_NormalMapQuality: 2
   m_UseNormalMap: 0
-  m_ShadowsEnabled: 0
+  m_ShadowsEnabled: 1
   m_ShadowIntensity: 1
   m_ShadowSoftness: 0
   m_ShadowSoftnessFalloffIntensity: 1

@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
+
 public class Animations : MonoBehaviour
 {
     private CatInput input;
@@ -26,7 +28,6 @@ public class Animations : MonoBehaviour
     
     void LateUpdate()
     {
-        // Moving only if we moved since last frame to avoid the expanding collider going through walls
         float newPosX = transform.position.x;
         float deltaX = Mathf.Abs(newPosX) - Mathf.Abs(lastPosX);
         anim.SetBool("Moving", Mathf.Abs(deltaX) > moveXThreshold ? true : false);
@@ -34,6 +35,9 @@ public class Animations : MonoBehaviour
         
         // Sprinting
         anim.SetBool("Sprinting", input.sprint);
+        
+        // Crouching
+        anim.SetBool("Crouching", input.crouch);
 
         // Flipping sprite on input direction
         if (input.inputVector != Vector2.zero)
@@ -52,10 +56,33 @@ public class Animations : MonoBehaviour
         bool isInAir = !movement.collisions.below && !input.wallSliding;
         anim.SetBool("InAir", isInAir);
         
-        float velocityY = Mathf.Sign(input.velocity.y); 
-        anim.SetFloat("JumpFloat", velocityY);
+        
+
+        if (Mathf.Abs(input.velocity.y) > 0.1)
+        {
+            float velocityY = Mathf.Clamp(input.velocity.y, -1, 1);
+
+            float targetY = Mathf.Sign(velocityY);
+
+            velocityY = Mathf.Lerp(velocityY, targetY, .05f);
+            
+            anim.SetFloat("JumpFloat", velocityY);
+        }
+        else
+        {
+            anim.SetFloat("JumpFloat", 0);
+        }
         
         anim.SetBool("WallSliding", input.wallSliding);
+        
+    }
+    
+    public void OnInteract(InputValue value)
+    {
+        if (value.isPressed)
+        {
+            anim.SetTrigger("Interact");
+        }
     }
 
     void TakeDamage()

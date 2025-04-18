@@ -244,14 +244,14 @@ MonoBehaviour:
   speed: 1
   localWaypoints:
   - {x: 0, y: 0, z: 0}
-  - {x: 4.92, y: 0, z: 0}
-  - {x: -7.79, y: 0, z: 0}
+  - {x: 9.08, y: 0, z: 0}
   easeAmount: 0.24
   viewDistance: 5
   laserBeam: {fileID: 6520148759481122293}
   laserActiveTime: 0.7
   laserDistance: 7
   laserDamage: 1
+  laserRadius: 0.5
   laserBeamClip: {fileID: 8300000, guid: 8bd04916028d0458cb2adb655c10b7af, type: 3}
 --- !u!95 &4277160328270646941
 Animator:

@@ -124,10 +124,10 @@ TextureImporter:
       name: cat03_attack_strip7_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 6
-        width: 19
-        height: 20
+        x: 0
+        y: 0
+        width: 40
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,10 +146,10 @@ TextureImporter:
       name: cat03_attack_strip7_1
       rect:
         serializedVersion: 2
-        x: 49
-        y: 6
-        width: 27
-        height: 21
+        x: 40
+        y: 0
+        width: 40
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,10 +168,10 @@ TextureImporter:
       name: cat03_attack_strip7_2
       rect:
         serializedVersion: 2
-        x: 89
-        y: 6
-        width: 21
-        height: 19
+        x: 80
+        y: 0
+        width: 40
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,10 +190,10 @@ TextureImporter:
       name: cat03_attack_strip7_3
       rect:
         serializedVersion: 2
-        x: 109
-        y: 10
-        width: 6
-        height: 9
+        x: 120
+        y: 0
+        width: 40
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -212,10 +212,10 @@ TextureImporter:
       name: cat03_attack_strip7_4
       rect:
         serializedVersion: 2
-        x: 127
-        y: 6
-        width: 24
-        height: 14
+        x: 160
+        y: 0
+        width: 40
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,10 +234,10 @@ TextureImporter:
       name: cat03_attack_strip7_5
       rect:
         serializedVersion: 2
-        x: 168
-        y: 6
-        width: 20
-        height: 19
+        x: 200
+        y: 0
+        width: 40
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -256,10 +256,10 @@ TextureImporter:
       name: cat03_attack_strip7_6
       rect:
         serializedVersion: 2
-        x: 208
-        y: 6
-        width: 20
-        height: 19
+        x: 240
+        y: 0
+        width: 40
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -274,33 +274,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: cat03_attack_strip7_7
-      rect:
-        serializedVersion: 2
-        x: 248
-        y: 6
-        width: 20
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f6fab08bb0942df80800000000000000
-      internalID: -8083318066495377553
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 4283650cd9bfe4a77b903048d85a724e
     internalID: 0
     vertices: []
     indices: 
@@ -317,7 +295,6 @@ TextureImporter:
       cat03_attack_strip7_4: -8640722048742547434
       cat03_attack_strip7_5: -7692303907212660141
       cat03_attack_strip7_6: 6651537885526995073
-      cat03_attack_strip7_7: -8083318066495377553
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

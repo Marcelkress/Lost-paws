@@ -1,6 +1,5 @@
-using System.Net;
-using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Movement))]
@@ -11,10 +10,12 @@ public class CatInput : MonoBehaviour
     public float minJumpHeight = 1f;
     public float timeToJumpMax = 0.4f;
     public float coyoteTime = 0.1f;
+    public UnityEvent JumpEvent;
 
     [Header("Movement settings")] 
     public float moveSpeed;
     public float sprintSpeed;
+    public float crouchSpeed;
     public float accelerationTimeAirborne = .2f;
     public float accelerationTimeGrounded = 0.1f;
 
@@ -25,7 +26,6 @@ public class CatInput : MonoBehaviour
     private float timeToWallUnstick;
     public Vector2 wallJumpClimb, wallJumpOff, wallLeap;
     [HideInInspector] public bool wallSliding;
-    
     
     private float gravity;
     private float maxJumpVelocity;
@@ -40,6 +40,7 @@ public class CatInput : MonoBehaviour
     [HideInInspector] public bool jumpTrigger;
     [HideInInspector] public bool jumpRelease;
     [HideInInspector] public bool sprint;
+    [HideInInspector] public bool crouch;
 
     private float velocityXSmoothing;
 
@@ -63,7 +64,22 @@ public class CatInput : MonoBehaviour
         int wallDirX = (movement.collisions.left) ? -1 : 1;
         wallSliding = false;
         
-        float targetVelocityX = inputVector.x * (sprint ? sprintSpeed : moveSpeed);
+        float targetSpeed;
+        if (sprint)
+        {
+            targetSpeed = sprintSpeed;
+        }
+        else if(crouch)
+        {
+            targetSpeed = crouchSpeed;
+        }
+        else
+        {
+            targetSpeed = moveSpeed;
+        }
+        
+        float targetVelocityX = inputVector.x * targetSpeed;
+        
         velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing,
             (movement.collisions.below ? accelerationTimeGrounded : accelerationTimeAirborne));
         
@@ -163,6 +179,7 @@ public class CatInput : MonoBehaviour
 
     private void JumpPerformed(InputAction.CallbackContext context)
     {
+        JumpEvent.Invoke();
         jumpTrigger = !jumpTrigger;
     }
 
@@ -173,7 +190,13 @@ public class CatInput : MonoBehaviour
     
     public void OnMove(InputValue value)
     {
-        inputVector = value.Get<Vector2>();
+        Vector2 vector = value.Get<Vector2>();
+
+        if (Mathf.Abs(vector.x) > .7f)
+            inputVector = new(1 * Mathf.Sign(vector.x), vector.y);
+        else
+            inputVector = vector;
+
     }
     
     public void OnJump(InputValue value)
@@ -184,5 +207,10 @@ public class CatInput : MonoBehaviour
     public void OnSprint(InputValue value)
     {
         sprint = value.isPressed;
+    }
+
+    public void OnCrouch(InputValue value)
+    {
+        crouch = value.isPressed;
     }
 }

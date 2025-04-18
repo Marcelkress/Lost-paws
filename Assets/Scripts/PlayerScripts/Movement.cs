@@ -56,6 +56,8 @@ public class Movement : RaycastController
         {
             collisions.below = true;
         }
+        
+//        Debug.Log(collisions.below);
     }
     
     void HorizontalCollisions(ref Vector3 velocity) {
