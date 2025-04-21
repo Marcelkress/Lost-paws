@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class CreatureBehavior : MonoBehaviour
 {
@@ -65,7 +66,7 @@ public class CreatureBehavior : MonoBehaviour
         else if (velocity.x > 0 && facingLeft)
         {
             facingLeft = false;
-            transform.localScale = new Vector3(originalScale.x, originalScale.y, originalScale.z);
+            transform.localScale = originalScale;
         }
     }
 

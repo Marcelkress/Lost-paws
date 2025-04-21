@@ -7,7 +7,6 @@ public class Animations : MonoBehaviour
     private Animator anim;
     private SpriteRenderer sprite;
     private Movement movement;
-    private BoxCollider2D collider;
     private float lastPosX;
     private PlayerHealth ph;
 
@@ -20,7 +19,6 @@ public class Animations : MonoBehaviour
         anim = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
         movement = GetComponent<Movement>();
-        collider = GetComponent<BoxCollider2D>();
         ph = GetComponent<PlayerHealth>();
         
         ph.TakeDamageEvent.AddListener(TakeDamage);

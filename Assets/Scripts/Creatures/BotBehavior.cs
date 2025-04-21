@@ -11,18 +11,14 @@ public class BotBehavior : CreatureBehavior
     public Vector3[] localWaypoints;
     [Range(0, 1)]public float easeAmount;
     
-    
     [Header("Laser attack")]
     public float viewDistance;
-    public GameObject laserBeam;
-    public float laserActiveTime = 0.5f;
-    public float laserDistance;
-    public int laserDamage;
-    public float laserRadius = 1f;
-    public AudioClip laserBeamClip;
-
     public GameObject projectile;
-
+    public float laserDistance;
+    public AudioClip laserBeamClip;
+    public float projectileSpeed;
+    public Transform instantiatePos;
+    
     private Animator anim;
     private bool awake;
     private int fromWaypointIndex;
@@ -30,6 +26,8 @@ public class BotBehavior : CreatureBehavior
     private float nextMoveTime;
     private BoxCollider2D collider2D;
     private Collider2D hit;
+
+    private Projectile projScript;
     
     private AudioSource audioSource;
     
@@ -38,12 +36,12 @@ public class BotBehavior : CreatureBehavior
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        base.Start();
         anim = GetComponent<Animator>();
         collider2D = GetComponent<BoxCollider2D>();
         audioSource = GetComponent<AudioSource>();
 
         awake = false;
-        originalScale = transform.localScale;
         
         globalWaypoints = new Vector3[localWaypoints.Length];
         for (int i = 0; i < localWaypoints.Length; i++)
@@ -61,6 +59,7 @@ public class BotBehavior : CreatureBehavior
         {
             return;
         }
+        
 
         if (!PlayerInView())
         {
@@ -92,54 +91,53 @@ public class BotBehavior : CreatureBehavior
         }
     }
     
-    float Ease(float x)
-    {
-        float a = easeAmount + 1;
-
-        return Mathf.Pow(x, a) / (Mathf.Pow(x, a) + Mathf.Pow(1 - x, a));
-    }
 
     /// <summary>
     /// Method is called from the animation timeline in Unity
     /// </summary>
     public void Shoot()
     {
-        //StartCoroutine(ShootLaser());
-        
-        //RaycastHit2D hit = Physics2D.CircleCast(collider2D.bounds.center, laserRadius, Vector2.right * (facingLeft == true ? -1 : 1), laserDistance, playerLayer);
-
-        //if (hit.collider != null)
-        //{
-          //  hit.transform.GetComponent<IHealth>().TakeDamage(laserDamage, false);
-        //}
-
-        //Instantiate(projectile).GetComponent<Projectile>().Initialize(pl);
-
+        if (hit == null)
+            return;
+            
+        // Instantiate prefab
+        GameObject proj = Instantiate(projectile, instantiatePos.position, transform.rotation);
+        projScript = proj.GetComponent<Projectile>();
+        Vector2 target = hit.transform.position;
+        projScript.Initialize(target, projectileSpeed);
     }
 
+    float Ease(float x)
+    {
+        float a = easeAmount + 1;
+
+        return Mathf.Pow(x, a) / (Mathf.Pow(x, a) + Mathf.Pow(1 - x, a));
+    }
     private bool PlayerInView()
     {
-        RaycastHit2D hit = Physics2D.BoxCast(collider2D.bounds.center, collider2D.bounds.size, 0f, Vector2.right * (facingLeft == true ? -1 : 1), viewDistance, playerLayer);
-
-        // If the player is crouching the bot cant see them
-        if (hit.collider != null)
+        if (CheckForProximity(viewDistance, ref hit))
         {
-            if (hit.collider.GetComponent<CatInput>().crouch)
+            if (hit.GetComponent<CatInput>().crouch)
             {
                 return false;
             }
+            if (!facingLeft)
+            {
+                if (transform.position.x - hit.transform.position.x < 0)
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                if (transform.position.x - hit.transform.position.x > 0)
+                {
+                    return true;
+                }
+            }
         }
         
-        return hit.collider != null;
-    }
-    
-    private IEnumerator ShootLaser()
-    {
-        laserBeam.SetActive(true);
-        
-        yield return new WaitForSeconds(laserActiveTime);
-        
-        laserBeam.SetActive(false);
+        return false;
     }
 
     public void StartShootSound()
@@ -147,7 +145,7 @@ public class BotBehavior : CreatureBehavior
         audioSource.PlayOneShot(laserBeamClip);
     }
     
-    Vector2 PatrolMovement()
+    private Vector2 PatrolMovement()
     {
         if (Time.time < nextMoveTime)
         {
