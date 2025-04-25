@@ -5,31 +5,29 @@ public class Animations : MonoBehaviour
 {
     private CatInput input;
     private Animator anim;
-    private SpriteRenderer sprite;
     private Movement movement;
-    private float lastPosX;
     private PlayerHealth ph;
 
     public float triggerJumpVelocityThreshold = 0.9f;
     public float moveXThreshold = 0.5f;
+
+    private Vector3 orgScale;
     
     void Start()
     {
         input = GetComponent<CatInput>();
         anim = GetComponent<Animator>();
-        sprite = GetComponent<SpriteRenderer>();
         movement = GetComponent<Movement>();
         ph = GetComponent<PlayerHealth>();
         
         ph.TakeDamageEvent.AddListener(TakeDamage);
+        
+        orgScale = transform.localScale;
     }
     
     void LateUpdate()
     {
-        float newPosX = transform.position.x;
-        float deltaX = Mathf.Abs(newPosX) - Mathf.Abs(lastPosX);
-        anim.SetBool("Moving", Mathf.Abs(deltaX) > moveXThreshold ? true : false);
-        lastPosX = transform.position.x;
+        anim.SetBool("Moving", input.inputVector != Vector2.zero ? true : false);
         
         // Sprinting
         anim.SetBool("Sprinting", input.sprint);
@@ -42,19 +40,19 @@ public class Animations : MonoBehaviour
         {
             if (Mathf.Sign(input.inputVector.x) == -1)
             {
-                sprite.flipX = true;
+                //sprite.flipX = true;
+                transform.localScale = new(-orgScale.x, transform.localScale.y);
             }
             else
             {
-                sprite.flipX = false;
+                //sprite.flipX = false;
+                transform.localScale = orgScale;
             }
         }
         
         // Jumping 
         bool isInAir = !movement.collisions.below && !input.wallSliding;
         anim.SetBool("InAir", isInAir);
-        
-        
 
         if (Mathf.Abs(input.velocity.y) > 0.1)
         {
@@ -73,14 +71,6 @@ public class Animations : MonoBehaviour
         
         anim.SetBool("WallSliding", input.wallSliding);
         
-    }
-    
-    public void OnInteract(InputValue value)
-    {
-        if (value.isPressed)
-        {
-            anim.SetTrigger("Interact");
-        }
     }
 
     void TakeDamage()

@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
@@ -10,6 +11,7 @@ public class BotBehavior : CreatureBehavior
     public float speed;
     public Vector3[] localWaypoints;
     [Range(0, 1)]public float easeAmount;
+    public float maxViewAngle = 70;
     
     [Header("Laser attack")]
     public float viewDistance;
@@ -113,6 +115,7 @@ public class BotBehavior : CreatureBehavior
 
         return Mathf.Pow(x, a) / (Mathf.Pow(x, a) + Mathf.Pow(1 - x, a));
     }
+    
     private bool PlayerInView()
     {
         if (CheckForProximity(viewDistance, ref hit))
@@ -121,6 +124,7 @@ public class BotBehavior : CreatureBehavior
             {
                 return false;
             }
+            
             if (!facingLeft)
             {
                 if (transform.position.x - hit.transform.position.x < 0)
