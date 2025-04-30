@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cat04_idle_blink_8fps_0: 1161963988456009442
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

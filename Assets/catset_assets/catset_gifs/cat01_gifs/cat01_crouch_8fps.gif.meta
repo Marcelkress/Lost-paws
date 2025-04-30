@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cat01_crouch_8fps_0: -298493195794768909
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

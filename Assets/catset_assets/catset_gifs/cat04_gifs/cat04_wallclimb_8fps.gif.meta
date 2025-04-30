@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cat04_wallclimb_8fps_0: -2401398267040755469
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

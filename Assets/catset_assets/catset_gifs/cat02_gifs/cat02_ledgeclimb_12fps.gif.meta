@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cat02_ledgeclimb_12fps_0: -8411232447952362594
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

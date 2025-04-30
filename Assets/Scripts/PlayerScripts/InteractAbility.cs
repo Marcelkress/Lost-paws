@@ -38,7 +38,7 @@ public class InteractAbility : MonoBehaviour
     {
         if (heldObj != null)
         {
-            
+            // Put down object we are holding
             anim.SetTrigger("Pickup");
             return;
         }
@@ -79,8 +79,15 @@ public class InteractAbility : MonoBehaviour
         {
             if (heldObj == null && collider.transform.GetComponent<IInteractable>() != null)
             {
-                heldObj = collider.gameObject;
-                heldObj.GetComponent<IInteractable>().Interact(mouthPosition);
+                if(collider.transform.CompareTag("PlatformKeyPickup"))
+                {
+                    heldObj = collider.gameObject;
+                    heldObj.GetComponent<IInteractable>().Interact(mouthPosition);
+                }
+                else if(collider.transform.CompareTag("UnlockObj"))
+                {
+                    collider.transform.GetComponent<IInteractable>().Interact(this.transform);
+                }
             }
         }
     }

@@ -409,7 +409,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cat02_ledgeclimb_struggle_strip12_0: 7953741596458740210
+      cat02_ledgeclimb_struggle_strip12_1: -5290568150077054052
+      cat02_ledgeclimb_struggle_strip12_10: -8152797134916974640
+      cat02_ledgeclimb_struggle_strip12_11: 936328500137062383
+      cat02_ledgeclimb_struggle_strip12_2: -2856035118561897656
+      cat02_ledgeclimb_struggle_strip12_3: 6778533535444933836
+      cat02_ledgeclimb_struggle_strip12_4: -6071558901633194049
+      cat02_ledgeclimb_struggle_strip12_5: 7511513638344007214
+      cat02_ledgeclimb_struggle_strip12_6: -7832359723426792475
+      cat02_ledgeclimb_struggle_strip12_7: 6486748677873767865
+      cat02_ledgeclimb_struggle_strip12_8: 6357222066279050919
+      cat02_ledgeclimb_struggle_strip12_9: -3859357607650168245
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

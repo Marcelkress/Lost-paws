@@ -309,7 +309,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cat01_crouch_strip8_0: -6871238341609897588
+      cat01_crouch_strip8_1: 5903214687487951188
+      cat01_crouch_strip8_2: -6593133104314534278
+      cat01_crouch_strip8_3: 2744450185269717948
+      cat01_crouch_strip8_4: -3688881115372963071
+      cat01_crouch_strip8_5: 5721592910649648769
+      cat01_crouch_strip8_6: -5566489630323126103
+      cat01_crouch_strip8_7: 6833553132351315970
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

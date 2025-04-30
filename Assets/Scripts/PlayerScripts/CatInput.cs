@@ -59,7 +59,7 @@ public class CatInput : MonoBehaviour
         jumpAction.canceled += JumpReleased;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         int wallDirX = (movement.collisions.left) ? -1 : 1;
         wallSliding = false;

@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cat01_dash_12fps_0: 5151396936548972884
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

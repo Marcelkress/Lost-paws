@@ -7,6 +7,8 @@ TagManager:
   - Through
   - Dirt
   - PlatformKey
+  - UnlockObj
+  - PlatformKeyPickup
   layers:
   - Default
   - TransparentFX

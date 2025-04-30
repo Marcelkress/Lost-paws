@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cat05_hurt_12fps_0: 5705458282330075204
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

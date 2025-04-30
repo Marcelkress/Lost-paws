@@ -309,7 +309,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cat02_fright_strip8_0: -6748759903132902109
+      cat02_fright_strip8_1: 70476202437412155
+      cat02_fright_strip8_2: -8322339768496370493
+      cat02_fright_strip8_3: -3375866970468432364
+      cat02_fright_strip8_4: -7495617247702530589
+      cat02_fright_strip8_5: -6651086991247120977
+      cat02_fright_strip8_6: 6710924641238749630
+      cat02_fright_strip8_7: -3097300087785733434
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

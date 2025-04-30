@@ -209,7 +209,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cat04_hurt_strip4_0: -3451708720107901985
+      cat04_hurt_strip4_1: -2491983818527941834
+      cat04_hurt_strip4_2: 1951162311107209842
+      cat04_hurt_strip4_3: 4186469059054803300
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

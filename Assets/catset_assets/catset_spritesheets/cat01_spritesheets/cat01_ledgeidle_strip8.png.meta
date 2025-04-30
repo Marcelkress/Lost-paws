@@ -309,7 +309,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cat01_ledgeidle_strip8_0: 6879982659200065819
+      cat01_ledgeidle_strip8_1: 2156105480672795024
+      cat01_ledgeidle_strip8_2: -4758721468003034003
+      cat01_ledgeidle_strip8_3: 7074348470748593393
+      cat01_ledgeidle_strip8_4: 1404350110508762696
+      cat01_ledgeidle_strip8_5: -2750488532380593967
+      cat01_ledgeidle_strip8_6: 4141073686415803202
+      cat01_ledgeidle_strip8_7: 7873708440837396406
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

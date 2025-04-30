@@ -309,7 +309,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cat04_sleep_strip8_0: 6954677452156772907
+      cat04_sleep_strip8_1: 8404444987960085969
+      cat04_sleep_strip8_2: 5111171409684322669
+      cat04_sleep_strip8_3: 4192609502107855953
+      cat04_sleep_strip8_4: 2175347905413900080
+      cat04_sleep_strip8_5: -4024460835950708837
+      cat04_sleep_strip8_6: 2203169875633094355
+      cat04_sleep_strip8_7: 5136959668119448528
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

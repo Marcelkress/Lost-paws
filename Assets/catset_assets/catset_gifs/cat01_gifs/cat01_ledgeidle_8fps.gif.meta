@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cat01_ledgeidle_8fps_0: 5923279696894803630
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

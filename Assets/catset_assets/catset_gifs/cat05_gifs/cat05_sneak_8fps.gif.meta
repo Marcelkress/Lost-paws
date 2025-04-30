@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cat05_sneak_8fps_0: 2344047908212302322
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -309,7 +309,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cat02_wallgrab_strip8_0: 7325110711117491003
+      cat02_wallgrab_strip8_1: 2326093415437178843
+      cat02_wallgrab_strip8_2: -8063166698165803889
+      cat02_wallgrab_strip8_3: -1490065730418792669
+      cat02_wallgrab_strip8_4: 1861036712474173634
+      cat02_wallgrab_strip8_5: -6787825726717777811
+      cat02_wallgrab_strip8_6: 5395385434496185632
+      cat02_wallgrab_strip8_7: -7481453577266545158
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

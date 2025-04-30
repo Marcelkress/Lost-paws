@@ -709,7 +709,31 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cat04_liedown_strip24_0: 7572916241258025484
+      cat04_liedown_strip24_1: 350581112641749424
+      cat04_liedown_strip24_10: -4586893927834758184
+      cat04_liedown_strip24_11: 7692041578315605679
+      cat04_liedown_strip24_12: -8308673171092182271
+      cat04_liedown_strip24_13: -6234662741658074838
+      cat04_liedown_strip24_14: 4155904959115435186
+      cat04_liedown_strip24_15: 4147366614389410588
+      cat04_liedown_strip24_16: -409277718161728056
+      cat04_liedown_strip24_17: -5168456404088136494
+      cat04_liedown_strip24_18: -5238418417753584894
+      cat04_liedown_strip24_19: 5113243771309076682
+      cat04_liedown_strip24_2: 5506755720212401632
+      cat04_liedown_strip24_20: 1002098896178091512
+      cat04_liedown_strip24_21: 3209799551321915177
+      cat04_liedown_strip24_22: 2600011700460022837
+      cat04_liedown_strip24_23: 4618288937902818474
+      cat04_liedown_strip24_3: 1316104663510467347
+      cat04_liedown_strip24_4: -1126926729705375721
+      cat04_liedown_strip24_5: 1495791537886962272
+      cat04_liedown_strip24_6: -7166240144702971616
+      cat04_liedown_strip24_7: 3412351128663275621
+      cat04_liedown_strip24_8: -1315398267786480928
+      cat04_liedown_strip24_9: 520499336492724993
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

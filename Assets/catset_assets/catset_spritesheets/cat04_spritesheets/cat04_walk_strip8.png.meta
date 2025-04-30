@@ -309,7 +309,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cat04_walk_strip8_0: 7946524692737653971
+      cat04_walk_strip8_1: -2855333038430608894
+      cat04_walk_strip8_2: -3525888662069121600
+      cat04_walk_strip8_3: 4674262571022335743
+      cat04_walk_strip8_4: -2868080174512304626
+      cat04_walk_strip8_5: 8277803127353398132
+      cat04_walk_strip8_6: 9113763480770881108
+      cat04_walk_strip8_7: -2140017911978747948
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cat05_walk_8fps_0: -3635784009647911155
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

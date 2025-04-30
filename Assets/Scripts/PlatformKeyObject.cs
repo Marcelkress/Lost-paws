@@ -17,7 +17,7 @@ public class PlatformKeyObject : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("PlatformKey"))
+        if (other.CompareTag("PlatformKey") || other.CompareTag("PlatformKeyPickup"))
         {
             targetPlatform.LockPlatform(false);
             spriteRenderer.sprite = downSprite;
@@ -27,7 +27,7 @@ public class PlatformKeyObject : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("PlatformKey"))
+        if (other.CompareTag("PlatformKey") || other.CompareTag("PlatformKeyPickup"))
         {
             targetPlatform.LockPlatform(true);
             spriteRenderer.sprite = upSprite;

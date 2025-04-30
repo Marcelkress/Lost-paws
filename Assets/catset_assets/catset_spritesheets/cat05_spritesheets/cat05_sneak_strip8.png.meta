@@ -309,7 +309,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cat05_sneak_strip8_0: -1584177506918746739
+      cat05_sneak_strip8_1: 5945479555066577548
+      cat05_sneak_strip8_2: -4444372416241159441
+      cat05_sneak_strip8_3: -4568891209238668778
+      cat05_sneak_strip8_4: 6846367788991867585
+      cat05_sneak_strip8_5: -3651155966487031419
+      cat05_sneak_strip8_6: 1120785203192512778
+      cat05_sneak_strip8_7: 2400394313720412103
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

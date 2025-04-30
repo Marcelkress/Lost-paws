@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cat01_liedown_8fps_0: 4804545316747200194
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cat01_fright_12fps_0: -5071448933302239736
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -309,7 +309,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cat05_wallclimb_strip8_0: -4273592212665085693
+      cat05_wallclimb_strip8_1: 2102257277535655722
+      cat05_wallclimb_strip8_2: 8490562336569632516
+      cat05_wallclimb_strip8_3: 5646547987476034100
+      cat05_wallclimb_strip8_4: -8256286913963528296
+      cat05_wallclimb_strip8_5: -1605808880486427708
+      cat05_wallclimb_strip8_6: 5461364507708458894
+      cat05_wallclimb_strip8_7: -8709119428818790377
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

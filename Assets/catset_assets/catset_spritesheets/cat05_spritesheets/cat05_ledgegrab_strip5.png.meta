@@ -234,7 +234,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cat05_ledgegrab_strip5_0: 7076352452382574484
+      cat05_ledgegrab_strip5_1: 6618458632212375561
+      cat05_ledgegrab_strip5_2: -490762443186901185
+      cat05_ledgegrab_strip5_3: -8857867013315036760
+      cat05_ledgegrab_strip5_4: -3428589409071093119
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

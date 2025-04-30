@@ -309,7 +309,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cat02_attack_strip7_0: 3920905087259127217
+      cat02_attack_strip7_1: -7180252011744954438
+      cat02_attack_strip7_2: 8382243195327817271
+      cat02_attack_strip7_3: -2516785875857742663
+      cat02_attack_strip7_4: -5245091982382249409
+      cat02_attack_strip7_5: -266649117520058088
+      cat02_attack_strip7_6: -2889641599369954941
+      cat02_attack_strip7_7: -5162357501945437125
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

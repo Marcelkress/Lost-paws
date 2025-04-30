@@ -184,7 +184,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cat04_fall_strip3_0: -6418935108021508934
+      cat04_fall_strip3_1: 4437767039445735726
+      cat04_fall_strip3_2: 6170839504440892829
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

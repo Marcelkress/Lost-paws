@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cat02_attack_12fps_0: -3850691016786123055
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
