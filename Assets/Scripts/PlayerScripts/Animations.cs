@@ -51,10 +51,10 @@ public class Animations : MonoBehaviour
         }
         
         // Jumping 
-        bool isInAir = !movement.collisions.below && !input.wallSliding;
+        bool isInAir = !movement.collisions.below && !input.wallSliding && Mathf.Abs(input.velocity.y)  > .9f;
         anim.SetBool("InAir", isInAir);
 
-        if (Mathf.Abs(input.velocity.y) > 0.1)
+        if (isInAir)
         {
             float velocityY = Mathf.Clamp(input.velocity.y, -1, 1);
 

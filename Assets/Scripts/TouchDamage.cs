@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(BoxCollider2D))]
 public class TouchDamage : MonoBehaviour
 {
     public int damage;

@@ -53,6 +53,7 @@ GameObject:
   - component: {fileID: 8890501098010852982}
   - component: {fileID: 1816671866335697227}
   - component: {fileID: 166233985341116764}
+  - component: {fileID: 4329789134437326520}
   m_Layer: 3
   m_Name: Cat
   m_TagString: Player
@@ -507,6 +508,65 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   forceMagnitude: 2
+--- !u!114 &4329789134437326520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7631957002756684204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_Priority: 1
+  m_ComponentVersion: 5
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_AlphaCutoff: 0.1
+  m_ApplyToSortingLayers: 4fb9bb46dff12e1581399d74000000004dea343073a40310737cac26a7d63dec
+  m_ShapePath:
+  - {x: -0.059104227, y: -0.055287145, z: 0}
+  - {x: -0.042052526, y: -0.044960283, z: 0}
+  - {x: -0.020410987, y: 0.0034729266, z: 0}
+  - {x: 0.0142574785, y: 0.011545517, z: 0}
+  - {x: 0.040552452, y: 0.008644703, z: 0}
+  - {x: 0.046363, y: -0.020163128, z: 0}
+  - {x: 0.050820094, y: -0.046552155, z: 0}
+  - {x: 0.022946863, y: -0.059374783, z: 0}
+  - {x: 0.014536218, y: -0.11323526, z: 0}
+  - {x: -0.06076896, y: -0.11631544, z: 0}
+  - {x: -0.06455924, y: -0.0788017, z: 0}
+  m_ShapePathHash: 1889334484
+  m_InstanceId: 0
+  m_ShadowShape2DComponent: {fileID: 0}
+  m_ShadowShape2DProvider:
+    rid: -2
+  m_ShadowCastingSource: 1
+  m_ShadowMesh:
+    m_Mesh: {fileID: 0}
+    m_LocalBounds:
+      m_Center: {x: -0.006869577, y: -0.052384958, z: 0}
+      m_Extent: {x: 0.057689667, y: 0.06393048, z: 0}
+    m_EdgeProcessing: 1
+    m_TrimEdge: 0.05
+    m_FlipX: 0
+    m_FlipY: 0
+    m_InitialTrim: 0
+  m_CastingOption: 1
+  m_PreviousTrimEdge: 0.05
+  m_PreviousEdgeProcessing: 1
+  m_PreviousShadowCastingSource: 1
+  m_PreviousShadowShape2DSource: {fileID: 6870125756968768550}
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!1 &8576152189365331028
 GameObject:
   m_ObjectHideFlags: 0

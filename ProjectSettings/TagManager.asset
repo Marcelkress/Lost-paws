@@ -9,6 +9,7 @@ TagManager:
   - PlatformKey
   - UnlockObj
   - PlatformKeyPickup
+  - Water
   layers:
   - Default
   - TransparentFX
