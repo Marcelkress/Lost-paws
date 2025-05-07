@@ -1,29 +1,42 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using Sirenix.OdinInspector;
 
 [RequireComponent(typeof(Movement))]
 public class CatInput : MonoBehaviour
 {
-    [Header("Jump settings")] 
+    [TabGroup("Jump")]
     public float maxJumpHeight = 4f;
+    [TabGroup("Jump")]
     public float minJumpHeight = 1f;
+    [TabGroup("Jump")]
     public float timeToJumpMax = 0.4f;
+    [TabGroup("Jump")]
     public float coyoteTime = 0.1f;
+    [TabGroup("Jump")]
     public UnityEvent JumpEvent;
 
-    [Header("Movement settings")] 
+    [TabGroup("Movement")]
     public float moveSpeed;
+    [TabGroup("Movement")]
     public float sprintSpeed;
+    [TabGroup("Movement")]
     public float crouchSpeed;
+    [TabGroup("Movement")]
     public float accelerationTimeAirborne = .2f;
+    [TabGroup("Movement")]
     public float accelerationTimeGrounded = 0.1f;
 
-    [Header("Wall jump settings")] 
+    [TabGroup("Wall Jump")]
     public bool canWallJump = false;
+    [TabGroup("Wall Jump")]
     public float wallSlideSpeedMax = 3f;
+    [TabGroup("Wall Jump")]
     public float wallStickTime = 0.25f;
+    [TabGroup("Wall Jump")]
     private float timeToWallUnstick;
+    [TabGroup("Wall Jump")] 
     public Vector2 wallJumpClimb, wallJumpOff, wallLeap;
     [HideInInspector] public bool wallSliding;
     
@@ -31,12 +44,14 @@ public class CatInput : MonoBehaviour
     private float maxJumpVelocity;
     private float minJumpVelocity;
     private float coyoteTimeCounter;
+    private float lastSpeed;
+    private float xSpeed;
     
     [HideInInspector] public Vector3 velocity;
     private Movement movement;
     private BoxCollider2D collider;
     
-    [HideInInspector] public Vector2 inputVector;
+    [ReadOnly] public Vector2 inputVector;
     [HideInInspector] public bool jumpTrigger;
     [HideInInspector] public bool jumpRelease;
     [HideInInspector] public bool sprint;
@@ -58,25 +73,13 @@ public class CatInput : MonoBehaviour
         jumpAction.performed += JumpPerformed;
         jumpAction.canceled += JumpReleased;
     }
-
+    
     void Update()
     {
         int wallDirX = (movement.collisions.left) ? -1 : 1;
         wallSliding = false;
-        
-        float targetSpeed;
-        if (sprint)
-        {
-            targetSpeed = sprintSpeed;
-        }
-        else if(crouch)
-        {
-            targetSpeed = crouchSpeed;
-        }
-        else
-        {
-            targetSpeed = moveSpeed;
-        }
+
+        float targetSpeed = AlterXSpeed();
         
         float targetVelocityX = inputVector.x * targetSpeed;
         
@@ -175,6 +178,36 @@ public class CatInput : MonoBehaviour
         {
             velocity.y = 0;
         }
+    }
+    
+    private float AlterXSpeed()
+    {
+        float speed;
+        
+        if (sprint)
+        {
+            xSpeed = sprintSpeed;
+        }
+        else if(crouch)
+        {
+            xSpeed = crouchSpeed;
+        }
+        else
+        {
+            xSpeed = moveSpeed;
+        }
+        
+        if (movement.collisions.below)
+        {
+            lastSpeed = xSpeed;
+            speed = xSpeed;
+        }
+        else
+        {
+            speed = lastSpeed;
+        }
+
+        return speed;
     }
 
     private void JumpPerformed(InputAction.CallbackContext context)

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 993233010287426594}
   m_Layer: 9
   m_Name: PickupKey
-  m_TagString: PlatformKey
+  m_TagString: PlatformKeyPickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 9.488, y: 0.687, z: 0}
-  m_LocalScale: {x: 2.591, y: 2.591, z: 2.591}
+  m_LocalScale: {x: 1.8884945, y: 1.8884945, z: 1.8884945}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -77,8 +77,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 268674163
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 6161908610097470699, guid: 99975df6cf1c64a22b6bc3a0467faf3b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

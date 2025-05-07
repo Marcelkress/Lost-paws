@@ -1,25 +1,31 @@
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using Sirenix.OdinInspector;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 
 public class BotBehavior : CreatureBehavior
 {
-    [Header("Settings")]
+    [TitleGroup("Patrol settings")]
     public float waitTime;
+    [TitleGroup("Patrol settings")]
     public float speed;
+    [TitleGroup("Patrol settings")]
     public Vector3[] localWaypoints;
+    [TitleGroup("Patrol settings")]
     [Range(0, 1)]public float easeAmount;
     public float maxViewAngle = 70;
     
-    [Header("Laser attack")]
+    [TitleGroup("Laser Attack settings")]
     public float viewDistance;
     public GameObject projectile;
     public float laserDistance;
     public AudioClip laserBeamClip;
     public float projectileSpeed;
     public Transform instantiatePos;
+    public float camShakeIntensity = 1f;
+    public float camShakeTime = 0.1f;
     
     private Animator anim;
     private bool awake;
@@ -101,7 +107,9 @@ public class BotBehavior : CreatureBehavior
     {
         if (hit == null)
             return;
-            
+        
+        CameraShake.instance.Shake(camShakeIntensity, camShakeTime);
+        
         // Instantiate prefab
         GameObject proj = Instantiate(projectile, instantiatePos.position, transform.rotation);
         projScript = proj.GetComponent<Projectile>();
@@ -124,6 +132,17 @@ public class BotBehavior : CreatureBehavior
             {
                 return false;
             }
+            
+            /*
+            // Raycast to check line of sight
+            Vector2 rayDir = hit.transform.position - transform.position;
+            rayDir.Normalize();
+            RaycastHit2D rayHit = Physics2D.Raycast(instantiatePos.position, rayDir, viewDistance);
+            if (!rayHit.transform.CompareTag("Player"))
+            {
+                return false;
+            }
+            */
             
             if (!facingLeft)
             {

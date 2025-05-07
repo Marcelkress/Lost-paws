@@ -13,9 +13,12 @@ public class PlayerEffects : MonoBehaviour
     [Header("Dust Sprint")] 
     public GameObject sprintDust;
     public GameObject sprintDustGround;
-
-
     public float spawnOffset = -0.1f;
+
+    [Header("Camera shake")] 
+    public float shakeIntensity;
+    public float shakeTime;
+
     private bool wasSprinting;
     
     
@@ -32,7 +35,7 @@ public class PlayerEffects : MonoBehaviour
     
     void LateUpdate()
     {
-        DustLandEffect();
+        LandEffect();
         SprintStartDust();
     }
 
@@ -55,15 +58,16 @@ public class PlayerEffects : MonoBehaviour
         wasSprinting = input.sprint;
     }
 
-    private void DustLandEffect()
+    private void LandEffect()
     {
         bool isInAir = !movement.collisions.below && !input.wallSliding;
         
         // Detect landing
         if (wasInAir && !isInAir)
         {
+            //CameraShake.instance.Shake(shakeIntensity, shakeTime);
+            
             RaycastHit2D hit = Physics2D.Raycast( new(transform.position.x,transform.position.y - dustRaycastOffset), Vector2.down, dustRaycastLength);
-
             if (hit)
             {
                 if (hit.transform.CompareTag("Dirt"))

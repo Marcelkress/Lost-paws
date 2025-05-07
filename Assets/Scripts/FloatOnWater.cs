@@ -45,7 +45,3 @@ public class FloatOnWater : MonoBehaviour
         //rb.linearVelocity = new(0,rb.linearVelocity.y);
     }
 }
-
-
-// Collider with water
-// Stay on top of water but with floating like physics
