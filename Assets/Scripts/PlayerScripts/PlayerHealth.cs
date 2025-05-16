@@ -1,5 +1,4 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -7,10 +6,14 @@ public class PlayerHealth : MonoBehaviour, IHealth
 {
     public int maxHealth;
     public float respawnDelay = 0.2f;
+
+    public Animator whirlAnimator;
+    
     public float duration = 1f;
     private int currentHealth;
 
     private bool dead;
+    private SpriteRenderer spriteRenderer;
 
     [HideInInspector] public Transform currentRespawnPoint;
     
@@ -21,6 +24,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
     {
         currentHealth = maxHealth;
         dead = false;
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     /// <summary>
@@ -64,19 +68,19 @@ public class PlayerHealth : MonoBehaviour, IHealth
 
     private IEnumerator RespawnDelay()
     {
+        CatInput.canReceiveInput = false;
+        whirlAnimator.SetTrigger("RedWhirl");
+        spriteRenderer.enabled = false;
+        
         yield return new WaitForSeconds(respawnDelay);
         
-        Vector3 startPosition = transform.position;
-        float elapsedTime = 0f;
-
-        while (elapsedTime < duration)
-        {
-            transform.position = Vector3.Lerp(startPosition, currentRespawnPoint.position, elapsedTime / duration);
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-
         transform.position = currentRespawnPoint.position; 
+        whirlAnimator.SetTrigger("BlueWhirl");
+
+        yield return new WaitForSeconds(respawnDelay);
+        
+        
+        CatInput.canReceiveInput = true;
     }
 }
 

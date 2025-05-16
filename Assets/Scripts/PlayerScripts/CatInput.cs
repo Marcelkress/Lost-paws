@@ -60,6 +60,8 @@ public class CatInput : MonoBehaviour
     private float velocityXSmoothing;
 
     private InputAction jumpAction;
+
+    public static bool canReceiveInput = true;
     
     void Start()
     {
@@ -72,10 +74,17 @@ public class CatInput : MonoBehaviour
         jumpAction = GetComponent<PlayerInput>().actions.FindAction("Jump");
         jumpAction.performed += JumpPerformed;
         jumpAction.canceled += JumpReleased;
+
+        canReceiveInput = true;
     }
     
     void Update()
     {
+        if (!canReceiveInput)
+        {
+            return;
+        }
+        
         int wallDirX = (movement.collisions.left) ? -1 : 1;
         wallSliding = false;
 
